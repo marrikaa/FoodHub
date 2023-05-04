@@ -1,7 +1,7 @@
 .searchBar{
     display: grid;
     grid-template-columns: 100%;
-    background-color: #D2B6BA;
+    background-color: #66222b;
 }
 
 @media (min-width: 700px) {

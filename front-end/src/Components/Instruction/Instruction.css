@@ -1,0 +1,7 @@
+.intructions{
+    display: flex;
+    padding: 1rem;
+    margin: 3rem;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: larger;
+}

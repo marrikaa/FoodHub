@@ -145,7 +145,7 @@ export const getIntructionByID = async (id :string) => {
 
   try {
     const response = await axios.request(options);
-    return response.data.steps;
+    return response.data[0].steps;
   } catch (error) {
     console.error(error);
   }

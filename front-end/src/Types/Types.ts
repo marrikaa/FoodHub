@@ -124,3 +124,8 @@ export type InstructionType = {
     number:number
     step:string
 }
+
+export type AppContextType = {
+    recipes: RecipeCardItem[],
+    setRecipes: (recipe: RecipeCardItem[]) => void,
+}
