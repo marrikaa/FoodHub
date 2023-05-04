@@ -1,0 +1,49 @@
+.recipe-card-item{
+    display: flex;
+    flex-direction: column;
+    border: none;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    margin: 5rem 3rem;
+    background-color: #bccfdc; 
+    border-radius: .5rem;
+    height: 40rem;
+    overflow: scroll;; 
+}
+
+.recipe-card-item:hover {
+    box-shadow: 0 18px 16px 0 rgba(0,0,0,0.2);
+    cursor: pointer;
+  }
+
+.card-image{
+    width: auto;
+    height: auto;
+    border-radius: .5rem;
+    margin: 1rem;
+}
+
+.read-more{
+    background-color: rgb(255,255,255);
+    padding: .5rem;
+    text-decoration: underline;
+    color:#F38C10;
+    margin:1rem;
+    width: 8rem;
+    background-color: #bccfdc; 
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.read-more:hover{
+    font-weight:bold;
+    cursor: pointer;
+}
+
+.title{
+    margin:1rem;
+    color: #F38C10;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.description{
+    margin: 1rem;
+}

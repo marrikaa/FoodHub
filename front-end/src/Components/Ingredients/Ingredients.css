@@ -1,0 +1,6 @@
+.ingredients{
+    display: flex;
+    flex-direction: row;
+    padding: .1rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
