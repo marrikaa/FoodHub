@@ -128,4 +128,12 @@ export type InstructionType = {
 export type AppContextType = {
     recipes: RecipeCardItem[],
     setRecipes: (recipe: RecipeCardItem[]) => void,
+    recipeDetails :  RecipeDetailsType;
+    setRecipeDetails: (recipe: RecipeDetailsType) => void,
+}
+
+export type RecipeDetailsType={
+    nameAndImage? :RecipeCardItem;
+    ingredient? :IngredientsType;
+    instruction? : InstructionType;
 }

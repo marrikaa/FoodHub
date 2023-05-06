@@ -1,0 +1,39 @@
+.formInput{
+    display: flex;
+    margin-top: 2rem;
+    justify-content: center;
+}
+
+input {
+    border-radius: 0.5rem;
+    border: 1px solid;
+    height: 2.7rem;
+    margin-right: 2rem;
+    font-size: medium;
+    width: 14rem;
+    background-color:#dcdcdc;
+}
+select{
+    margin-right: 2rem;
+    border-radius: 0.5rem;
+    border: 1px solid;
+    height: 3rem;
+    width: 15rem;
+    font-size: medium;
+    background-color:#dcdcdc;
+}
+
+body{
+    background-color:#66222b; ;
+}
+
+.search-button{
+    background-color:#dcdcdc;
+    height: 2rem;
+    width: 3rem;
+    border: none;
+    border-radius: .5rem;
+    margin: 10px;
+    justify-content: center;
+
+}

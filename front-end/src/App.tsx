@@ -3,6 +3,7 @@ import './App.css';
 import Header from './Components/Header/Header';
 import Instruction from './Components/Instruction/Instruction';
 import SearchBar from './Components/SearchBar/SearchBar';
+import SearchForm from './Components/SearchForm/SearchForm';
 
 function App() {
  
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<SearchBar />}></Route>
         <Route path="/:id" element={<Instruction />}></Route>
+        <Route path="/searchDish" element={<SearchForm />}></Route>
       </Routes>
      
     </div>

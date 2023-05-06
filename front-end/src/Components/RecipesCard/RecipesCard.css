@@ -4,20 +4,17 @@
     border: none;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     margin: 5rem 3rem;
-    background-color: #bccfdc; 
+    background-color:  #dcdcdc;  
     border-radius: .5rem;
-    height: 40rem;
     overflow: scroll;; 
 }
 
 .recipe-card-item:hover {
-    box-shadow: 0 18px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 5px 13px 13px 0 rgba(0, 0, 0, 0.2);
     cursor: pointer;
   }
 
 .card-image{
-    width: auto;
-    height: auto;
     border-radius: .5rem;
     margin: 1rem;
 }
@@ -29,7 +26,7 @@
     color:#F38C10;
     margin:1rem;
     width: 8rem;
-    background-color: #bccfdc; 
+    background-color: #dcdcdc; 
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -41,7 +38,7 @@
 .title{
     margin:1rem;
     color: #F38C10;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .description{

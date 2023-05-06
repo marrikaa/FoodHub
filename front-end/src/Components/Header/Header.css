@@ -1,6 +1,6 @@
 .page-header{
     background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)), 
-    url("https://images.unsplash.com/photo-1487376318617-f43c7b41e2e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80");
+    url("https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3432&q=80");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -9,5 +9,69 @@
 }
 
 .text-header{
-    padding: 10rem;
+    padding: 4rem 1rem;
+    text-align: right;
+    text-decoration: wavy;
+    line-height: 1rem;
+    color: #66222b;
+    font-size: .7rem;
+    font-family:'Times New Roman', Times, serif
 }
+
+.navbar{
+    display: flex;
+    justify-content: end;
+
+}
+
+.navbar-element{
+    font-family:'Times New Roman', Times, serif;
+    color: #66222b;
+    margin-right: 1rem;
+    margin-top: 2rem;
+    font-size: .7rem;
+    text-decoration: underline;
+    font-weight: lighter;
+}
+
+.navbar-element:hover{
+    font-weight:bold;
+    cursor: pointer;
+}
+
+@media (min-width: 800px) {
+    .text-header{
+        padding: 6.5rem 2rem;
+        line-height: 2rem;
+        font-size: 1rem;
+    }
+    .navbar-element{
+        margin-right: 2rem;
+        font-size: 1.1rem;
+    }
+}
+
+@media (min-width: 900px) {
+    .text-header{
+        padding: 8rem 3.5rem;
+        line-height:  3rem;
+        font-size: 1.5rem;
+    }
+    .navbar-element{
+        margin-right: 3.5rem;
+        font-size: 1.3rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .text-header{
+        padding: 10rem 5rem;
+        line-height: 3rem;
+        font-size: 1.5rem;
+    }
+    .navbar-element{
+        margin-right: 5rem;
+        font-size: 1.5rem;
+    }
+}
+

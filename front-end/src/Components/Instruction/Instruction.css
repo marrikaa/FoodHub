@@ -1,7 +1,135 @@
+.recipe-details{
+    margin: 1rem 2rem; 
+}
+
+body{
+    background-color:  #dcdcdc; 
+}
 .intructions{
     display: flex;
-    padding: 1rem;
-    margin: 3rem;
+    text-align: left;
+}
+
+.details-title{
+    margin: 1rem;
+    color: #F38C10;
     font-family: 'Times New Roman', Times, serif;
-    font-size: larger;
+}
+
+.ingredients-steps{
+    display: grid;
+    grid-template-columns: 45% 10% 45%;
+    text-align: center;
+    margin: 5rem 0rem;
+    font-size: large;
+    font-family: 'Times New Roman', Times, serif;
+    color:  #F38C10;
+}
+
+.details_img_title{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    text-align: center;
+}
+
+.details-photo{
+    width: 20rem;
+    border-radius: .5rem;
+}
+
+.description{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: medium;
+    color: #F38C10;
+    line-height: 1rem;
+}
+
+.vl {
+  border-left: .1rem solid #F38C10;
+  height: auto
+}
+
+.title_steps_ing{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    text-align: center;
+    margin-top: 5rem;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.3rem;
+    color:  #F38C10;
+}
+
+@media (min-width: 800px) {
+    .title_steps_ing{
+        font-size: 1.5rem;
+    }
+    .recipe-details{
+        margin: 3rem 5rem; 
+    }
+    .ingredients-steps{
+        font-size: larger;
+    }
+    .details-photo{
+        width: 23rem;
+        border-radius: .5rem;
+    }
+    .description{
+        font-size: large;
+        line-height: 1.5rem;
+    }
+    .details-title{
+        font-size: 1.3rem;
+    }
+}
+
+@media (min-width: 1000px) {
+    .title_steps_ing{
+        font-size: 1.7rem;
+    }
+    .vl{
+        border-left: .2rem,
+    }
+    .recipe-details{
+        margin: 4rem 7rem; 
+    }
+    .ingredients-steps{
+        font-size: larger;
+    }
+    .details-photo{
+        width: 25rem;
+        border-radius: .5rem;
+    }
+    .description{
+        font-size: large;
+        line-height: 2rem;
+    }
+    .details-title{
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 1400px) {
+    .title_steps_ing{
+        font-size: 2rem;
+    }
+    .vl{
+        border-left: .2rem,
+    }
+    .recipe-details{
+        margin: 5rem 15rem; 
+    }
+    .ingredients-steps{
+        font-size: larger;
+    }
+    .details-photo{
+        width: 30rem;
+        border-radius: .5rem;
+    }
+    .description{
+        font-size: larger;
+        line-height: 3rem;
+    }
+    .details-title{
+        font-size: 2rem;
+    }
 }

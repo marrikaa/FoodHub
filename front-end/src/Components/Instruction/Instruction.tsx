@@ -14,22 +14,40 @@ function Instruction ()  {
 
     useEffect(() => {
         const getInstruction = async() => {
-            const ingredients = await getIntructionByID(id!);
-            setInstruction(ingredients);
+            const instructions = await getIntructionByID(id!);
+            // setInstruction([{
+            //     number: 2,
+            //     step: "jdsajsijadsid"
+            // }]);
+            setInstruction(instructions)
         }
         getInstruction()
     }, [])
    
     return(
-        <>
-        {getRecipeById && <><img src={getRecipeById.image} />
-        <p>{getRecipeById.title}</p></>}
-        <div><Ingredients recipeId={id!} /></div>
-        {instruction && instruction.map((i: InstructionType)=> (
-            <div className="intructions">
-                <p>{i.number} -  </p>
-                <p>{i.step}</p>
-            </div>))}
-    </> ) 
+        <div className="recipe-details">
+        {getRecipeById &&
+            <div className="details_img_title">
+                <img className="details-photo" src={getRecipeById.image} />
+                <div><p className="details-title"><b>{getRecipeById.title}</b></p>
+                <p className="description">This mouth-watering recipe is ready in just 25 minutes and the ingredients detailed below can serve up to 4 people</p>
+                </div> 
+            </div>}
+            <div className="title_steps_ing">
+                <p>Ingredients</p>
+                <p>Steps for cooking</p>
+            </div>
+        <div className="ingredients-steps">
+            <div><Ingredients recipeId={id!} /></div>
+            <div className="vl"></div>
+            <div>
+            {instruction && instruction.map((i: InstructionType, index) => (
+                <div className="intructions" key={index}>
+                    <li>{i.step}</li>
+                </div>))}</div>
+        </div>
+        </div>
+
+     ) 
 }
 export default Instruction
