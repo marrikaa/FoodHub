@@ -16,6 +16,7 @@ const AuthContext = createContext<any>({});
 export const AuthContextProvider = ({children} :any) => {
     const [user, setUser] = useState ({})
     const [uid, setUid] = useState ("")
+    
     const logOut = () => {
         signOut(authenticator);
     }
@@ -32,9 +33,11 @@ export const AuthContextProvider = ({children} :any) => {
         const provider = new GoogleAuthProvider(); 
         const userCredential = await signInWithPopup(authenticator, provider); 
         setUid(userCredential.user.uid);
-        const user = await getUserById(uid);
+        const user : any = await getUserById(userCredential.user.uid);
         if(!user) {
-            await addUser(user!.displayName, uid)
+            onAuthStateChanged(authenticator, async (currentUser) => {
+                await addUser(currentUser?.displayName!, userCredential.user.uid)
+            })
         } else {
             setUser(user);
         }

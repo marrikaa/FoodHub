@@ -11,13 +11,14 @@ import { getFirestore } from "firebase/firestore";
 // require('dotenv').config()
 
 const firebaseConfig = {
-    apiKey: "AIzaSyA7dvZ65sgtcozNVdd4lfSTPgzCJ4e-EB8",
-    authDomain: "foodhub-825ed.firebaseapp.com",
-    projectId: "foodhub-825ed",
-    storageBucket: "foodhub-825ed.appspot.com",
-    messagingSenderId: "374249567942",
-    appId: "1:374249567942:web:ab9252773d8f3a5bdd49c7",
-    measurementId: "G-K2MYEDFE6W",
+  apiKey: "AIzaSyA7dvZ65sgtcozNVdd4lfSTPgzCJ4e-EB8",
+  authDomain: "foodhub-825ed.firebaseapp.com",
+  databaseURL: "https://foodhub-825ed-default-rtdb.firebaseio.com",
+  projectId: "foodhub-825ed",
+  storageBucket: "foodhub-825ed.appspot.com",
+  messagingSenderId: "374249567942",
+  appId: "1:374249567942:web:ab9252773d8f3a5bdd49c7",
+  measurementId: "G-K2MYEDFE6W"
 };
 
 // API_KEY =  "AIzaSyA7dvZ65sgtcozNVdd4lfSTPgzCJ4e-EB8",

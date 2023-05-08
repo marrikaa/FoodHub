@@ -1,0 +1,92 @@
+.formInput {
+    display: flex;
+    width: 40%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.formInput input {
+    width: 150%;
+    height:3rem;
+}
+
+.formInput button {
+    width: 40%;
+    height: 15%;
+    border-radius: .3rem;
+    border: 1px solid black;
+    font-size: larger;
+
+}
+
+.formInput button:hover {
+   font-weight:bolder;
+   border: 2px solid black;
+}
+
+
+input {
+    margin: 1rem 0rem;
+    border-radius: 0.5rem;
+    border: 1px solid;
+    font-size: medium;
+}
+
+.popup-x{
+    text-align: right;
+    align-items:flex-end;
+}
+
+.PopUp {
+    position: fixed;
+    left: 35%;
+    top: 15%;
+    width: 30%;
+    height: 60%;
+    border-radius: 1em;
+    box-shadow: -2px 5px 5px #8b4049;
+    background-color: #e2e2e2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: #011627;
+    padding: 1rem;
+}
+
+.create-account-element{
+    border: 1px solid black;
+    padding: 1rem 2rem;
+}
+.PopUp h3:hover{
+    font-size: larger;
+    cursor: pointer;
+}
+
+.popup-x{
+    font-size: larger;
+    border-radius: 50%;
+    border: .5px solid black;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.popup-x:hover{
+    font-weight: bolder;
+    border: 1px solid black;
+}
+
+.line {
+    width: 100%; 
+    text-align: center; 
+    border-bottom: 1px solid #000; 
+    line-height: 0.1em;
+    margin: 10px 0 20px; 
+ } 
+ 
+ .line span { 
+    background:#e2e2e2; 
+    padding:0 10px; 
+ }

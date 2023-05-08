@@ -4,6 +4,8 @@ import { AppContextType, RecipeCardItem, RecipeDetailsType } from '../Types/Type
 
 
 export const AppContext = createContext<AppContextType>({
+    user: {} as any,
+    setUser: (user: any) => {},
     recipes: [] as RecipeCardItem[],
     setRecipes: (recipes: RecipeCardItem[]) => [],
     recipeDetails : {} as RecipeDetailsType,
@@ -13,11 +15,14 @@ export const AppContext = createContext<AppContextType>({
 export const AppContextProvider = ({ children }: { children: ReactNode }) => {
     const [recipes, setRecipes] = useState<RecipeCardItem[]>([]);
     const [recipeDetails, setRecipeDetails] = useState<RecipeDetailsType>({});
+    const [user, setUser ] =useState<any>({})
   
   
 
     return (
         <AppContext.Provider value={{
+            user,
+            setUser,
             recipes,
             setRecipes,
             recipeDetails,

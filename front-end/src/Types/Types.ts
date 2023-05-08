@@ -126,6 +126,8 @@ export type InstructionType = {
 }
 
 export type AppContextType = {
+    user: any,
+    setUser: (user:any) => void,
     recipes: RecipeCardItem[],
     setRecipes: (recipe: RecipeCardItem[]) => void,
     recipeDetails :  RecipeDetailsType;

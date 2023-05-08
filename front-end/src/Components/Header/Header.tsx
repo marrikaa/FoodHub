@@ -1,10 +1,14 @@
 import { useNavigate } from 'react-router-dom';
 import './Header.css'
 import { UserAuth } from '../../Context/AuthContext';
+import { useState } from 'react';
+import SignIn from '../SignIn/SignIn';
 
 function Header() {
+    const [popUpForSign, setPopUpForSign] = useState<boolean>(false)
     const { user, logOut } = UserAuth();
     const navigate = useNavigate();
+
     const redirectToSearch = () => {
         try{
           navigate(`/searchDish`)  
@@ -21,13 +25,6 @@ function Header() {
         }
     }
 
-    const redirectToSIgnIn= () => {
-        try{
-          navigate(`/signIn`)  
-        }catch{
-            console.error();    
-        }
-    }
     const logOutHandler = async() => {
         try{
             console.log(user)
@@ -66,7 +63,10 @@ function Header() {
                             <h4 onClick={logOutHandler} className='navbar-inner-element dropbtn'>Log out</h4>
                         </div> 
                     </div>
-                    : <h3 onClick={redirectToSIgnIn} className='navbar-element'>Sign in</h3>}
+                    : <div>
+                        <h3 className='navbar-element' data-toggle="modal" onClick={() => setPopUpForSign(true)}>Sign in</h3>
+                        {popUpForSign && <SignIn setPopUpForSign={setPopUpForSign}/>}
+                        </div>}
             </div>
             
             <h3 className='text-header'>

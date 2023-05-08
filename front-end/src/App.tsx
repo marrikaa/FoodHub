@@ -3,6 +3,7 @@ import './App.css';
 import Header from './Components/Header/Header';
 import Instruction from './Components/Instruction/Instruction';
 import MyBlogs from './Components/MyBlogs/MyBlogs';
+import RegistrationForm from './Components/RegistrationForm/RegistrationForm';
 import SearchBar from './Components/SearchBar/SearchBar';
 import SearchForm from './Components/SearchForm/SearchForm';
 import SearchFormByIngredients from './Components/SearchFormByIngredients/SearchFormByIngredients';
@@ -20,7 +21,6 @@ function App() {
           <Route path="/:id" element={<Instruction />}></Route>
           <Route path="/searchDish" element={<SearchForm />}></Route>
           <Route path="/searchDishByIngredients" element={<SearchFormByIngredients />}></Route>
-          <Route path="/signIn" element={<SignIn />}></Route>
           <Route path="/myblogs" element={<MyBlogs />}></Route>
         </Routes>
       </AuthContextProvider>
