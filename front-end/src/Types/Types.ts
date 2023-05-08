@@ -137,3 +137,10 @@ export type RecipeDetailsType={
     ingredient? :IngredientsType;
     instruction? : InstructionType;
 }
+
+export type UserIngredients = {
+    ingredients: string,
+    number: string,
+    ignorePantry: string,
+    ranking: string
+}

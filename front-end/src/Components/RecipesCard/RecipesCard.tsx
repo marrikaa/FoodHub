@@ -15,7 +15,7 @@ function RecipesCard (props : RecipeCardItem) {
             console.error();    
         }
     }
-    
+
     return (
         <div className="recipe-card-item" onClick={seeInstructions}>
             <img className= "card-image" src={image} />

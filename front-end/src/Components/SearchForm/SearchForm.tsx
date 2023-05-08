@@ -17,15 +17,6 @@ function SearchForm () {
                     "Nordic",  "Southern", "Spanish", "Thai", "Vietnamese"]
     const diets= ["pescetarian", "lacto vegetarian", "ovo vegetarian", "vegan", "paleo", "primal", "vegetarian"]
 
-    useEffect(()=>{
-        const getrecipes = async () => {
-            const recipes = await getRecipes(recipeFilter);
-            setNewRecipes(recipes.results)
-            setRecipes(recipes.results);
-        }
-        getrecipes();
-    },[])
-
     const formSubmitted = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const { dish, cuisine, excludeCuisine, diet } = event.currentTarget;
@@ -48,14 +39,17 @@ function SearchForm () {
             <form onSubmit={formSubmitted} className='formInput' method='get'>
                     <input name="dish" placeholder='Dish' type="text" />
                     <select id="cuisine" name="cuisine" placeholder='Cuisine'>
+                        <option value="" disabled selected hidden>Cuisine</option>
                         <option></option>
                         {cousines.map(cousine => <option value={cousine}>{cousine}</option>)}
                     </select>
                     <select id="excludeCuisine" name="excludeCuisine" placeholder='Exclude Cuisine'>
+                        <option value="" disabled selected hidden>Exclude Cuisine</option>
                         <option></option>
                         {cousines.map(cousine => <option value={cousine}>{cousine}</option>)}
                     </select>
                     <select id="diet" name="diet" placeholder='Diet' >
+                        <option value="" disabled selected hidden>Diet</option>
                         <option></option>
                         {diets.map(cousine => <option value={cousine}>{cousine}</option>)}
                     </select>

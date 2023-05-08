@@ -75,3 +75,38 @@
     }
 }
 
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    
+    z-index: 1;
+    background-color:#edecec;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content h4 {
+    font-family:'Times New Roman', Times, serif;
+    color: #66222b;
+    font-size: 1rem;
+    text-decoration: underline;
+    display: block;
+    font-weight: lighter;
+    margin-top: .5rem;
+  }
+
+  .dropdown-content h4:hover {
+    font-weight:bold;
+    cursor: pointer;
+  }
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+  
+

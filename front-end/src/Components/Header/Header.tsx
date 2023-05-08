@@ -10,11 +10,25 @@ function Header() {
             console.error();    
         }
     }
+
+    const redirectToSearchByIngerdients = () => {
+        try{
+          navigate(`/searchDishByIngredients`)  
+        }catch{
+            console.error();    
+        }
+    }
  
     return (
         <div className="page-header">
             <div className='navbar'>
-                <h3 onClick={redirectToSearch} className='navbar-element'>Recipes</h3>
+                <div className='dropdown'>
+                    <h3 className='navbar-element dropbtn'>Recipes</h3>
+                    <div className = "dropdown-content">
+                        <h4 onClick={redirectToSearch} className='navbar-inner-element dropbtn'>Search Recipes</h4>
+                        <h4 onClick={redirectToSearchByIngerdients} className='navbar-inner-element dropbtn'>Search By Ingerients</h4>
+                    </div>
+                </div>
                 <h3 className='navbar-element'>Blogs</h3>
                 <h3 className='navbar-element'>Sign in</h3>
             </div>

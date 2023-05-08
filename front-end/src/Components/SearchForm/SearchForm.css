@@ -23,6 +23,10 @@ select{
     background-color:#dcdcdc;
 }
 
+input{
+    background-color:#dcdcdc;
+}
+
 body{
     background-color:#66222b; ;
 }
@@ -37,3 +41,41 @@ body{
     justify-content: center;
 
 }
+
+@media (min-width: 800px) {
+    .text-header{
+        padding: 6.5rem 2rem;
+        line-height: 2rem;
+        font-size: 1rem;
+    }
+    .navbar-element{
+        margin-right: 2rem;
+        font-size: 1.1rem;
+    }
+}
+
+@media (min-width: 900px) {
+    .text-header{
+        padding: 8rem 3.5rem;
+        line-height:  3rem;
+        font-size: 1.5rem;
+    }
+    .navbar-element{
+        margin-right: 3.5rem;
+        font-size: 1.3rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .text-header{
+        padding: 10rem 5rem;
+        line-height: 3rem;
+        font-size: 1.5rem;
+    }
+    .navbar-element{
+        margin-right: 5rem;
+        font-size: 1.5rem;
+    }
+}
+
+

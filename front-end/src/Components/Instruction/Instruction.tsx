@@ -8,6 +8,7 @@ import './Instruction.css'
 
 function Instruction ()  {
     const [instruction, setInstruction] = useState<InstructionType[]>([]);
+    const [error, setError] = useState<string>();
     const { id } = useParams();
     const {recipes} = useContext(AppContext);
     const getRecipeById: RecipeCardItem = recipes.filter((recipe: RecipeCardItem) => recipe.id == id)[0];
@@ -19,7 +20,12 @@ function Instruction ()  {
             //     number: 2,
             //     step: "jdsajsijadsid"
             // }]);
-            setInstruction(instructions)
+            if(instructions.steps === undefined){
+                setError("Sorry, We don't have instuction for this recipe!")
+            }
+            else{
+                setInstruction(instructions)
+            } 
         }
         getInstruction()
     }, [])
@@ -41,6 +47,7 @@ function Instruction ()  {
             <div><Ingredients recipeId={id!} /></div>
             <div className="vl"></div>
             <div>
+            {error && <p className="intructions">{error}</p>}
             {instruction && instruction.map((i: InstructionType, index) => (
                 <div className="intructions" key={index}>
                     <li>{i.step}</li>

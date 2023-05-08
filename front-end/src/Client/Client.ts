@@ -1,6 +1,6 @@
 import { getByPlaceholderText } from "@testing-library/react";
 import axios from "axios";
-import { RecipeType } from "../Types/Types";
+import { RecipeType, UserIngredients } from "../Types/Types";
   
 export const getRecipes = async (filterRecipe : RecipeType) => {
   const recipes = {
@@ -146,8 +146,34 @@ export const getIntructionByID = async (id :string) => {
 
   try {
     const response = await axios.request(options);
+    console.log(id)
     return response.data[0].steps;
+  } catch (error:any) {
+    return error.message;
+  }
+}
+
+export const getrecipesByIngredient = async(userIngredients: UserIngredients) => {
+  const options = {
+    method: 'GET',
+    url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients',
+    params: {
+      ingredients: userIngredients.ingredients,
+      number: userIngredients.number,
+      ignorePantry: userIngredients.ignorePantry,
+      ranking: userIngredients.ranking
+    },
+    headers: {
+      'X-RapidAPI-Key': '4288b7764fmshe52fbf8fbecbc97p17e289jsna998622faf97',
+      'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
+    }
+  };
+  
+  try {
+    const response = await axios.request(options);
+    console.log(response.data)
+    return response.data;
   } catch (error) {
     console.error(error);
-  }
+  }  
 }
