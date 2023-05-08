@@ -84,9 +84,7 @@
   .dropdown-content {
     display: none;
     position: absolute;
-    
     z-index: 1;
-    background-color:#edecec;
   }
   
   /* Links inside the dropdown */
@@ -107,6 +105,12 @@
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {display: block;}
+
+.navbar-img{
+    border-radius: 50%;
+    width: 2rem;
+    height: auto;
+}
 
   
 
