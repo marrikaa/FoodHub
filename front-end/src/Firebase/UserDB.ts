@@ -29,7 +29,8 @@ export const UpdateUserFavRecipes = async (uid: string, user: any) => {
     return "success";
 }
 
-export const UpdateUserBlog = async (uid: string, user: any) => {
+export const updateUserBlog = async (uid: string, user: any) => {
+    console.log(uid)
     const userRef = doc(dbConnection, "users", uid);
     setDoc(userRef, user, { merge: true });
     return "success";

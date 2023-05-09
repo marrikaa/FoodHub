@@ -13,4 +13,9 @@ export const createBlog = async (params: any): Promise<string> => {
     });
     return currentId;
 }
-
+export const getAllBlogs = async (): Promise<any> => {
+    const projectsRef = collection(dbConnection, "blogs");
+    const querySnapshot = await getDocs(query(projectsRef));
+    const projects = querySnapshot.docs.map(project => project.data());
+    return projects as any[];
+}

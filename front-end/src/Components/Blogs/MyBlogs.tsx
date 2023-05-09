@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserAuth } from "../../Context/AuthContext";
 import { getUserById } from "../../Firebase/UserDB";
-import BlogsCard from "../BlogsCard/BlogsCard";
+import BlogsCard from "./BlogsCard";
 import './MyBlogs.css'
 
 function MyBlogs (){

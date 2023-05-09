@@ -49,10 +49,19 @@ function Header() {
               console.error();    
           }
     }
+    const redirectToAllBlogsPage = async() => {
+        try{
+            navigate(`/blogs`)  
+          }catch{
+              console.error();    
+          }
+    }
+    
  
     return (
         <div className="page-header">
             <div className='navbar'>
+            <h3  className='navbar-element' onClick={redirectToAllBlogsPage}>Blogs</h3>
                 <div className='dropdown'>
                     <h3 className='navbar-element dropbtn'>Recipes</h3>
                     <div className = "dropdown-content">
@@ -60,7 +69,6 @@ function Header() {
                         <h4 onClick={redirectToSearchByIngerdients} className='navbar-inner-element dropbtn'>Search By Ingerients</h4>
                     </div>
                 </div>
-                <h3  className='navbar-element'>Blogs</h3>
                 {user?
                     <div  className='dropdown'>
                         <img className='navbar-img dropbtn navbar-element' alt="" src={user.photoURL? user.photoURL

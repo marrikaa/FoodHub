@@ -3,24 +3,25 @@ import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { UserAuth } from '../../Context/AuthContext';
 import { createBlog } from '../../Firebase/BlogsDB';
-import { UpdateUserBlog } from '../../Firebase/UserDB';
+import { getUserById, updateUserBlog } from '../../Firebase/UserDB';
 import TextArea from '../Textarea/TextrArea';
 import './CreateBlog.css'
 
 const CreateBlog = () => {
     const [currentDescription, setCurrentDescription] = useState("");
     const [currentTitle, setCurrentTitle] = useState("");
-    const { user, userName } = UserAuth();
+    const { user } = UserAuth();
 
     const saveProject = async () => {
+        const userData = await getUserById(user.uid);
         const blogToCreate: any = {
             title: currentTitle,
             description: currentDescription,
-            owner: userName,
+            owner: userData.username,
         }
+        console.log(user)
         const uid = await createBlog(blogToCreate);
-        await UpdateUserBlog(user!.uid, {
-            blogs: arrayUnion(blogToCreate)})
+        await updateUserBlog(user.uid, { blogs: arrayUnion(blogToCreate)})
     }
 
     const changeCurrentDescription = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
