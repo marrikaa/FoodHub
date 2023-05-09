@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getIntructionByID } from "../../Client/Client";
 import { AppContext } from "../../Context/AppContext";
-import { Idtype, InstructionType, RecipeCardItem } from "../../Types/Types";
+import {  InstructionType, RecipeCardItem } from "../../Types/Types";
 import Ingredients from "../Ingredients/Ingredients";
 import './Instruction.css'
 
@@ -11,7 +11,7 @@ function Instruction ()  {
     const [error, setError] = useState<string>();
     const { id } = useParams();
     const {recipes} = useContext(AppContext);
-    const getRecipeById: RecipeCardItem = recipes.filter((recipe: RecipeCardItem) => recipe.id == id)[0];
+    const getRecipeById: RecipeCardItem = recipes.filter((recipe: RecipeCardItem) => recipe.id === id)[0];
 
     useEffect(() => {
         const getInstruction = async() => {
@@ -28,13 +28,13 @@ function Instruction ()  {
             } 
         }
         getInstruction()
-    }, [])
+    }, [id])
    
     return(
         <div className="recipe-details">
         {getRecipeById &&
             <div className="details_img_title">
-                <img className="details-photo" src={getRecipeById.image} />
+                <img className="details-photo" alt="" src={getRecipeById.image} />
                 <div><p className="details-title"><b>{getRecipeById.title}</b></p>
                 <p className="description">This mouth-watering recipe is ready in just 25 minutes and the ingredients detailed below can serve up to 4 people</p>
                 </div> 

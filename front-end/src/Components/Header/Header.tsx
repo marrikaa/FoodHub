@@ -9,6 +9,7 @@ function Header() {
     const { user, logOut } = UserAuth();
     const navigate = useNavigate();
 
+
     const redirectToSearch = () => {
         try{
           navigate(`/searchDish`)  
@@ -54,9 +55,10 @@ function Header() {
                     </div>
                 </div>
                 <h3  className='navbar-element'>Blogs</h3>
-                {user?.displayName?  
+                {user?
                     <div  className='dropdown'>
-                        <img className='navbar-img dropbtn navbar-element' src ={user.photoURL} />
+                        <img className='navbar-img dropbtn navbar-element' alt="" src={user.photoURL? user.photoURL
+                            :"https://www.nicepng.com/png/detail/933-9332131_profile-picture-default-png.png" } />
                         <div className = "dropdown-content">
                             <h4 onClick={redirectToMyBlogs} className='navbar-inner-element dropbtn'>My blogs</h4>
                             <h4 onClick={logOutHandler} className='navbar-inner-element dropbtn'>My recipes</h4>

@@ -1,13 +1,13 @@
 import { useContext, useEffect, useState } from 'react';
-import { getRecipes, getrecipesByIngredient } from '../../Client/Client';
+import {  getrecipesByIngredient } from '../../Client/Client';
 import { AppContext } from '../../Context/AppContext';
-import { RecipeType, UserIngredients } from '../../Types/Types';
+import { UserIngredients } from '../../Types/Types';
 import { RecipeCardItem } from '../../Types/Types';
 import RecipesCard from '../RecipesCard/RecipesCard';
 import './SearchFormByIngredients.css'
 
 function SearchFormByIngredients () {
-    const { setRecipes} = useContext(AppContext);
+    const { recipes, setRecipes} = useContext(AppContext);
     const [userIngredients, setUserIngredients] = useState<UserIngredients> ({  
         ingredients: "",
         number: '1',
@@ -16,20 +16,27 @@ function SearchFormByIngredients () {
     });
     const [newRecipes, setNewRecipes] = useState<RecipeCardItem[]>([]);
     
+    useEffect(() => {
+        const getIngredients= async() =>{
+            const recipe = await getrecipesByIngredient(userIngredients);
+            if(userIngredients.ingredients!== ""){
+                setNewRecipes(recipe);
+                setRecipes(recipe);
+            }else{
+                setNewRecipes(recipes)
+            }       
+        }
+        getIngredients()
+      }, [userIngredients]);
 
     const formSubmitted = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const { ingredients } = event.currentTarget;
-        const getrecipes = async () => {
-            setUserIngredients({
-                ...userIngredients,
-                ingredients: await ingredients.value.split(" ").join(','),
-             });
-            const recipes = await getrecipesByIngredient(userIngredients);
-            setNewRecipes(recipes);
-            setRecipes(recipes);
-        }
-        getrecipes();
+        setUserIngredients({
+            ...userIngredients,
+            ingredients: await ingredients.value.split(" ").join(','),
+            });
+        
     }
  
     return (

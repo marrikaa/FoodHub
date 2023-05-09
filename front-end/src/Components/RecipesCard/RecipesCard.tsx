@@ -1,7 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { buffer } from 'stream/consumers';
 import { RecipeCardItem } from '../../Types/Types';
-import Ingredients from '../Ingredients/Ingredients';
 import './RecipesCard.css'
 
 function RecipesCard (props : RecipeCardItem) {
@@ -18,7 +16,7 @@ function RecipesCard (props : RecipeCardItem) {
 
     return (
         <div className="recipe-card-item" onClick={seeInstructions}>
-            <img className= "card-image" src={image} />
+            <img className= "card-image"  alt="" src={image} />
             <h2 className="title"><b>{title}</b></h2>
             <p className='description'>
             </p>

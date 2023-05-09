@@ -1,4 +1,4 @@
-.formInput {
+.login-form {
     display: flex;
     width: 40%;
     flex-direction: column;
@@ -6,32 +6,39 @@
     align-items: center;
 }
 
-.formInput input {
+.form-input {
     width: 150%;
     height:3rem;
-}
-
-.formInput button {
-    width: 40%;
-    height: 15%;
-    border-radius: .3rem;
-    border: 1px solid black;
-    font-size: larger;
-
-}
-
-.formInput button:hover {
-   font-weight:bolder;
-   border: 2px solid black;
-}
-
-
-input {
     margin: 1rem 0rem;
     border-radius: 0.5rem;
     border: 1px solid;
     font-size: medium;
+    font-family: 'Times New Roman', Times, serif;
 }
+
+.form-button {
+    width: 70%;
+    height: 13%;
+    border-radius: .3rem;
+    border: 1px solid black;
+    font-size: large;
+    margin-top: 2rem;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.form-button:hover {
+   font-weight:bolder;
+   border: 1px solid black;
+   
+}
+
+h2{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    margin: 1rem 0rem;
+}
+
+
 
 .popup-x{
     text-align: right;
@@ -40,10 +47,10 @@ input {
 
 .PopUp {
     position: fixed;
-    left: 35%;
+    left: 10%;
     top: 15%;
-    width: 30%;
-    height: 60%;
+    width: 80%;
+    height: 50%;
     border-radius: 1em;
     box-shadow: -2px 5px 5px #8b4049;
     background-color: #e2e2e2;
@@ -57,7 +64,11 @@ input {
 
 .create-account-element{
     border: 1px solid black;
-    padding: 1rem 2rem;
+    padding: .8rem 2rem;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: lighter;
+    border-radius: .5rem;
+    margin-top: 2rem;
 }
 .PopUp h3:hover{
     font-size: larger;
@@ -90,3 +101,37 @@ input {
     background:#e2e2e2; 
     padding:0 10px; 
  }
+
+ @media (min-width: 800px) {
+    .PopUp{
+        left: 25%;
+        top: 15%;
+        width: 50%;
+        height: 60%;
+    }
+    .form-button{
+        width: 80%;
+        height: 10%;
+        font-size: larger;
+    }
+    h2{
+        font-size: 20px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .PopUp{
+        left: 30%;
+        top: 15%;
+        width: 40%;
+        height: 60%;
+    }
+    .form-button{
+        width: 60%;
+        height: 10%;
+        font-size: larger;
+    }
+    h2{
+        font-size: 20px
+    }
+}

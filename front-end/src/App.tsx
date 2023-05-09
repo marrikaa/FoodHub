@@ -1,13 +1,11 @@
-import { Route, Router, Routes } from 'react-router-dom';
+import { Route,Routes } from 'react-router-dom';
 import './App.css';
 import Header from './Components/Header/Header';
 import Instruction from './Components/Instruction/Instruction';
 import MyBlogs from './Components/MyBlogs/MyBlogs';
-import RegistrationForm from './Components/RegistrationForm/RegistrationForm';
 import SearchBar from './Components/SearchBar/SearchBar';
 import SearchForm from './Components/SearchForm/SearchForm';
 import SearchFormByIngredients from './Components/SearchFormByIngredients/SearchFormByIngredients';
-import SignIn from './Components/SignIn/SignIn';
 import { AuthContextProvider } from './Context/AuthContext';
 
 function App() {

@@ -17,21 +17,28 @@ function SearchForm () {
                     "Nordic",  "Southern", "Spanish", "Thai", "Vietnamese"]
     const diets= ["pescetarian", "lacto vegetarian", "ovo vegetarian", "vegan", "paleo", "primal", "vegetarian"]
 
+    useEffect(() => {
+        const getRecipe = async() =>{
+            const recipe = await getRecipes(recipeFilter);
+            if(recipeFilter.query!== undefined){
+               setNewRecipes(recipe.results)
+                setRecipes(recipe.results); 
+            }else{
+                setNewRecipes(recipes)
+            }       
+        }
+        getRecipe()
+      }, [recipeFilter]);
+
     const formSubmitted = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const { dish, cuisine, excludeCuisine, diet } = event.currentTarget;
-        setRecipeFilter({
+        await setRecipeFilter({
             query: dish.value,
             cuisine: cuisine.value,
             excludeCuisine: excludeCuisine.value,
             diet: diet.value,
         });
-        const getrecipes = async () => {
-            const recipes = await getRecipes(recipeFilter);
-            setNewRecipes(recipes.results)
-            setRecipes(recipes.results);
-        }
-        getrecipes();
     }
  
     return (

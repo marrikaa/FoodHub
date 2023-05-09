@@ -1,5 +1,4 @@
-import { createContext, ReactNode, useEffect, useState } from 'react'
-import { getRecipes } from '../Client/Client';
+import { createContext, ReactNode, useState } from 'react'
 import { AppContextType, RecipeCardItem, RecipeDetailsType } from '../Types/Types';
 
 

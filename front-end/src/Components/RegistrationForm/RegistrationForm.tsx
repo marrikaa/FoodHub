@@ -1,7 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "../../Context/AppContext";
-import {  register } from "../../Firebase/UserDB";
+import { UserAuth } from "../../Context/AuthContext";
+
 import './RegistrationForm.css'
 
 type PropsType ={
@@ -10,6 +11,7 @@ type PropsType ={
 }
 
 const RegistrationForm = (props : PropsType) => {
+    const { register} = UserAuth();
     const { setPopUp, setPopUpForSign } = props 
 
     const { setUser } = useContext(AppContext);
@@ -34,11 +36,11 @@ const RegistrationForm = (props : PropsType) => {
         if (res!== 'created successfully') {
             setWrongInput(res);
         } else {
-            closePopUpHandler();
             setUser({
                 username: username.value
             })
             navigate('/');
+            closePopUpHandler();
         }
     }
     const closePopUpHandler = () => {
@@ -49,14 +51,14 @@ const RegistrationForm = (props : PropsType) => {
     return (
         <div className='PopUp'>
             <button className="popup-x" onClick={closePopUpHandler}>X</button>
-            <form onSubmit={formSubmitted} className='formInput'>
+            <form onSubmit={formSubmitted} className='login-form'>
                 <h2>Create account</h2>
-                <input name='email' placeholder='Your Email' type="email" />
-                <input name='username' placeholder='Your username' type="text" />
-                <input name='password' placeholder='Your password' type="password" />
-                <input name='password_2' placeholder='Confirm password' type="password" />
+                <input className='form-input' name='email' placeholder='Your Email' type="email" />
+                <input className='form-input' name='username' placeholder='Your username' type="text" />
+                <input className='form-input' name='password' placeholder='Your password' type="password" />
+                <input className='form-input' name='password_2' placeholder='Confirm password' type="password" />
                 <h3>{wrongInput}</h3>
-                <button className='register-button' type='submit'>Register</button>
+                <button className='form-button' type='submit'>Register</button>
                 {wrongInput !== "" && <label>{wrongInput}</label>}
             </form>
         </ div>

@@ -2,28 +2,28 @@ import { useContext, createContext, useEffect, useState } from "react";
 import { 
     GoogleAuthProvider,
     signInWithPopup,
-    signInWithRedirect,
     signOut,
-    onAuthStateChanged
+    onAuthStateChanged,
+    signInWithEmailAndPassword,
+    createUserWithEmailAndPassword
 } from "firebase/auth";
 import { authenticator } from "../Firebase/FirebaseConfig";
-import { addUser, getUserById } from "../Firebase/UserDB";
+import { addUser, getUserById, isUserUnique } from "../Firebase/UserDB";
 
 
 const AuthContext = createContext<any>({});
 
 
 export const AuthContextProvider = ({children} :any) => {
-    const [user, setUser] = useState ({})
-    const [uid, setUid] = useState ("")
-    
+    const [user, setUser] = useState ({});
     const logOut = () => {
         signOut(authenticator);
-    }
+    } 
+    const unsubscribe = onAuthStateChanged(authenticator, (currentUser) => {
+        setUser(currentUser!)
+    })
+
     useEffect(()=>{
-        const unsubscribe = onAuthStateChanged(authenticator, (currentUser) => {
-            setUser(currentUser!)
-        })
         return () => {
             unsubscribe ();
         }
@@ -32,7 +32,6 @@ export const AuthContextProvider = ({children} :any) => {
     const googleSignIn = async () => { 
         const provider = new GoogleAuthProvider(); 
         const userCredential = await signInWithPopup(authenticator, provider); 
-        setUid(userCredential.user.uid);
         const user : any = await getUserById(userCredential.user.uid);
         if(!user) {
             onAuthStateChanged(authenticator, async (currentUser) => {
@@ -41,11 +40,31 @@ export const AuthContextProvider = ({children} :any) => {
         } else {
             setUser(user);
         }
-       
+    }
+
+    const emailSignIn =async (email:string, password: string): Promise<any | undefined> => {
+            try{
+                const userCredentials = await signInWithEmailAndPassword(authenticator, email, password);
+                const user = await getUserById(userCredentials.user.uid);
+                unsubscribe();
+                return { username: user.username, uid: userCredentials.user.uid } as any;
+            } catch(error) {
+                return "userName or password is incorrect"
+            }
+        }
+
+    const register = async (username: string, email: string, password: string): Promise<string> => {
+        if (! await isUserUnique(username)) {
+        return "username already in use";
+        }
+        const userCredential = await createUserWithEmailAndPassword(authenticator, email, password);
+        await addUser(username, userCredential.user.uid);
+        unsubscribe();
+        return "created successfully";
     }
 
     return (
-        <AuthContext.Provider value={{googleSignIn, logOut, user}}>
+        <AuthContext.Provider value={{googleSignIn, emailSignIn, register, logOut, user}}>
             {children}
         </AuthContext.Provider>
     )
