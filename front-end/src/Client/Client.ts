@@ -145,7 +145,6 @@ export const getIntructionByID = async (id :string) => {
 
   try {
     const response = await axios.request(options);
-    console.log(id)
     return response.data[0].steps;
   } catch (error:any) {
     return error.message;
@@ -170,7 +169,7 @@ export const getrecipesByIngredient = async(userIngredients: UserIngredients) =>
   
   try {
     const response = await axios.request(options);
-    console.log(response.data)
+
     return response.data;
   } catch (error) {
     console.error(error);

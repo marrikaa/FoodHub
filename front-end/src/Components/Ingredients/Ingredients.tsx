@@ -25,7 +25,6 @@ function Ingredients (props: Idtype)  {
             // }]);
         }
         getIngredients()
-        console.log("hey")
     }, [recipeId])
    
     return(

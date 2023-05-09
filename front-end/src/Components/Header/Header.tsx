@@ -28,7 +28,6 @@ function Header() {
 
     const logOutHandler = async() => {
         try{
-            console.log(user)
             await logOut();
 
         }catch(error){
@@ -39,6 +38,13 @@ function Header() {
     const redirectToMyBlogs = async() => {
         try{
             navigate(`/myblogs`)  
+          }catch{
+              console.error();    
+          }
+    }
+    const redirectToMyRecipes = async() => {
+        try{
+            navigate(`/myRecipes`)  
           }catch{
               console.error();    
           }
@@ -61,7 +67,7 @@ function Header() {
                             :"https://www.nicepng.com/png/detail/933-9332131_profile-picture-default-png.png" } />
                         <div className = "dropdown-content">
                             <h4 onClick={redirectToMyBlogs} className='navbar-inner-element dropbtn'>My blogs</h4>
-                            <h4 onClick={logOutHandler} className='navbar-inner-element dropbtn'>My recipes</h4>
+                            <h4 onClick={redirectToMyRecipes} className='navbar-inner-element dropbtn'>My recipes</h4>
                             <h4 onClick={logOutHandler} className='navbar-inner-element dropbtn'>Log out</h4>
                         </div> 
                     </div>

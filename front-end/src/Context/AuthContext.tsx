@@ -16,6 +16,7 @@ const AuthContext = createContext<any>({});
 
 export const AuthContextProvider = ({children} :any) => {
     const [user, setUser] = useState ({});
+    const [userName, setUserName] = useState <string>("");
     const logOut = () => {
         signOut(authenticator);
     } 
@@ -36,6 +37,7 @@ export const AuthContextProvider = ({children} :any) => {
         if(!user) {
             onAuthStateChanged(authenticator, async (currentUser) => {
                 await addUser(currentUser?.displayName!, userCredential.user.uid)
+                setUserName(currentUser?.displayName!)
             })
         } else {
             setUser(user);
@@ -46,6 +48,7 @@ export const AuthContextProvider = ({children} :any) => {
             try{
                 const userCredentials = await signInWithEmailAndPassword(authenticator, email, password);
                 const user = await getUserById(userCredentials.user.uid);
+                setUserName(user.username)
                 unsubscribe();
                 return { username: user.username, uid: userCredentials.user.uid } as any;
             } catch(error) {
@@ -55,16 +58,17 @@ export const AuthContextProvider = ({children} :any) => {
 
     const register = async (username: string, email: string, password: string): Promise<string> => {
         if (! await isUserUnique(username)) {
-        return "username already in use";
+            return "username already in use";
         }
         const userCredential = await createUserWithEmailAndPassword(authenticator, email, password);
+        setUserName(username)
         await addUser(username, userCredential.user.uid);
         unsubscribe();
         return "created successfully";
     }
 
     return (
-        <AuthContext.Provider value={{googleSignIn, emailSignIn, register, logOut, user}}>
+        <AuthContext.Provider value={{googleSignIn, emailSignIn, register, logOut, user, userName}}>
             {children}
         </AuthContext.Provider>
     )

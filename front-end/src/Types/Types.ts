@@ -100,6 +100,7 @@ export type RecipeCardItem ={
     title: string,
     image: string,
     id:string,
+    isFav: boolean,
 }
 
 export type Idtype = {

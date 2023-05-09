@@ -1,8 +1,10 @@
 import { Route,Routes } from 'react-router-dom';
 import './App.css';
+import CreateBlog from './Components/CreateBlog/CreateBlog';
 import Header from './Components/Header/Header';
 import Instruction from './Components/Instruction/Instruction';
 import MyBlogs from './Components/MyBlogs/MyBlogs';
+import MyFavRecipes from './Components/MyFavRecipes/MyFavRecipes';
 import SearchBar from './Components/SearchBar/SearchBar';
 import SearchForm from './Components/SearchForm/SearchForm';
 import SearchFormByIngredients from './Components/SearchFormByIngredients/SearchFormByIngredients';
@@ -20,6 +22,8 @@ function App() {
           <Route path="/searchDish" element={<SearchForm />}></Route>
           <Route path="/searchDishByIngredients" element={<SearchFormByIngredients />}></Route>
           <Route path="/myblogs" element={<MyBlogs />}></Route>
+          <Route path="/myRecipes" element={<MyFavRecipes />}></Route>
+          <Route path="/createBlog" element={<CreateBlog />}></Route>  
         </Routes>
       </AuthContextProvider>
     </div>

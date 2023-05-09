@@ -10,8 +10,8 @@ function Instruction ()  {
     const [instruction, setInstruction] = useState<InstructionType[]>([]);
     const [error, setError] = useState<string>();
     const { id } = useParams();
-    const {recipes} = useContext(AppContext);
-    const getRecipeById: RecipeCardItem = recipes.filter((recipe: RecipeCardItem) => recipe.id === id)[0];
+    const { recipes } = useContext(AppContext);
+    const getRecipeById: RecipeCardItem = recipes.filter((recipe: RecipeCardItem) => recipe.id == id)[0];
 
     useEffect(() => {
         const getInstruction = async() => {

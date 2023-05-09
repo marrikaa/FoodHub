@@ -1,0 +1,11 @@
+.add-blog-button{
+    border: 1px solid black;
+    color:brown;
+    cursor: pointer;
+    padding: 1rem;
+    width: 20rem;
+    height: auto;
+    background-color: aliceblue;
+    margin: 5rem;
+    text-align: center;
+}
