@@ -14,7 +14,6 @@ function SignIn (props :PropsType) {
     const [popUpForReg, setPopUpForReg] = useState<boolean>(false)
     const { googleSignIn, emailSignIn} = UserAuth();
     const [error, setError] = useState<string>();
-    const [user, setUser] = useState<any>();
     const navigate = useNavigate();
     
     const handleGoogleSignIn = async () => {
@@ -30,7 +29,6 @@ function SignIn (props :PropsType) {
         const { userNameInput, passwordInput } = event.currentTarget;
         let currentUser = await emailSignIn(userNameInput.value, passwordInput.value);
         if (currentUser!.username) {
-            setUser(currentUser);
             setPopUpForSign(false);
             navigate(-1);
         }

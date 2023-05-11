@@ -1,12 +1,8 @@
-import { arrayUnion } from 'firebase/firestore';
-import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { UserAuth } from '../../Context/AuthContext';
 import './BlogsCard.css'
 
 function BlogsCard (props : any) {
     const { title, id, description } = props;
-    const{ user } = UserAuth();
     const navigate = useNavigate();
 
     const seeDetails = () => {

@@ -72,7 +72,7 @@ function Header() {
                 {user?
                     <div  className='dropdown'>
                         <img className='navbar-img dropbtn navbar-element' alt="" src={user.photoURL? user.photoURL
-                            :"https://www.nicepng.com/png/detail/933-9332131_profile-picture-default-png.png" } />
+                            :"https://www.pngkit.com/png/detail/973-9737735_food-product-font-graphics-png-clipart-free-download.png" } />
                         <div className = "dropdown-content">
                             <h4 onClick={redirectToMyBlogs} className='navbar-inner-element dropbtn'>My blogs</h4>
                             <h4 onClick={redirectToMyRecipes} className='navbar-inner-element dropbtn'>My recipes</h4>
@@ -84,7 +84,6 @@ function Header() {
                         {popUpForSign && <SignIn setPopUpForSign={setPopUpForSign}/>}
                         </div>}
             </div>
-            
             <h3 className='text-header'>
                 Welcome to FoodHub, your go-to destination for all things food!<br />
                 Whether you're a seasoned chef or just starting out in the kitchen, <br />

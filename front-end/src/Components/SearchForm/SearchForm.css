@@ -4,7 +4,7 @@
     justify-content: center;
 }
 
-input {
+.searchForm input {
     border-radius: 0.5rem;
     border: 1px solid;
     height: 2.7rem;
@@ -42,7 +42,7 @@ body{
 
 }
 
-@media (min-width: 800px) {
+/* @media (min-width: 800px) {
     .text-header{
         padding: 6.5rem 2rem;
         line-height: 2rem;
@@ -76,6 +76,6 @@ body{
         margin-right: 5rem;
         font-size: 1.5rem;
     }
-}
+} */
 
 

@@ -5,11 +5,10 @@
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-    color: white;
 }
 
 .text-header{
-    padding: 2rem 1rem;
+    padding: 1rem 1rem;
     text-align: right;
     text-decoration: wavy;
     line-height: 1rem;
@@ -20,14 +19,14 @@
 
 .navbar{
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
 }
 
 .navbar-element{
     font-family:'Times New Roman', Times, serif;
     color: #66222b;
     margin-right: 1rem;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     font-size: .7rem;
     text-decoration: underline;
     font-weight: lighter;
@@ -50,9 +49,9 @@
 
 @media (min-width: 800px) {
     .text-header{
-        padding: 4rem 2rem;
-        line-height: 2rem;
-        font-size: 1rem;
+        padding: 2rem 2rem;
+        font-size: .9rem;
+        line-height: 1.5rem;
     }
     .navbar-element{
         margin-right: 2rem;
@@ -65,9 +64,9 @@
 
 @media (min-width: 900px) {
     .text-header{
-        padding: 6rem 3.5rem;
-        line-height:  3rem;
-        font-size: 1.5rem;
+        padding: 3rem 3rem;
+        font-size: 1.3rem;
+        line-height: 2.5rem;
     }
     .navbar-element{
         margin-right: 3.5rem;
@@ -80,18 +79,18 @@
 
 @media (min-width: 1200px) {
     .text-header{
-        padding: 7rem 5rem;
-        line-height: 3rem;
+        padding: 4rem 4rem;
         font-size: 1.5rem;
+        line-height: 3rem;
     }
     .navbar-element{
-        margin-right: 5rem;
+        margin-right: 4rem;
         font-size: 1.5rem;
     }
     .dropdown-content h4{
         font-size: 1rem;
     }
-}
+} 
 
 .dropdown {
     position: relative;
@@ -103,7 +102,7 @@
     display: none;
     position: absolute;
     z-index: 1;
-  }
+  } 
   
   /* Links inside the dropdown */
 
@@ -118,9 +117,9 @@
 
 .navbar-img{
     border-radius: 50%;
-    width: 1.7rem;
+    width: 2rem;
     height: auto;
-    margin-right: 2rem ;
+
 }
 
 

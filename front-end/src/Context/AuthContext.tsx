@@ -11,6 +11,7 @@ import { authenticator } from "../Firebase/FirebaseConfig";
 import { addUser, getUserById, isUserUnique } from "../Firebase/UserDB";
 
 
+
 const AuthContext = createContext<any>({});
 
 export const AuthContextProvider = ({children} :any) => {
@@ -38,7 +39,7 @@ export const AuthContextProvider = ({children} :any) => {
                 setUser(currentUser!)
             })
         } else {
-            setUser(user);
+            unsubscribe();
         }
     }
 

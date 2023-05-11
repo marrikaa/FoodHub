@@ -1,5 +1,4 @@
-import { collection, setDoc, doc, getDoc, where, query, getDocs, updateDoc, arrayUnion } from "firebase/firestore";
-import { RecipeCardItem } from "../Types/Types";
+import { collection, setDoc, doc, getDoc, where, query, getDocs} from "firebase/firestore";
 import { dbConnection } from './FirebaseConfig';
 
 export const isUserUnique = async (username: string): Promise<boolean> => {
@@ -18,9 +17,13 @@ export const addUser = async (userName: string, uid: string) => {
 }
 
 export const getUserById = async (uid: string) : Promise <any>=> {
-    const docRef = doc(dbConnection, "users", uid);
-    const docSnap = (await getDoc(docRef)).data();
-    return docSnap;
+    try{
+        const docRef = doc(dbConnection, "users", uid);
+        const docSnap = (await getDoc(docRef)).data();
+        return docSnap as any;
+    }catch{
+        console.error();   
+    }
 }
 
 export const UpdateUserFavRecipes = async (uid: string, user: any) => {
@@ -30,7 +33,6 @@ export const UpdateUserFavRecipes = async (uid: string, user: any) => {
 }
 
 export const updateUserBlog = async (uid: string, user: any) => {
-    console.log(uid)
     const userRef = doc(dbConnection, "users", uid);
     setDoc(userRef, user, { merge: true });
     return "success";

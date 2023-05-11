@@ -1,33 +1,13 @@
-.text-area-app {
-    display: flex;
-    font-family: Helvetica, Arial, sans-serif;
-    justify-content: center;
-    flex-direction: column;
-    max-width: 100ch;
-}
-
-label {
-    color: #727272;
-    font-size: 14px;
-    margin-bottom: 4px;
-}
-
 textarea {
-    background: #ffffff;
+    background-color:#dcdcdc;
     border-radius: 0;
     border: none;
     border-bottom: 1px solid #ededed;
-    line-height: 1.5;
+    line-height: 1;
     resize: none;
-    transition: border-color 150ms ease;
-    width: 100%;
-    margin-top: 1rem;
-    font-size: 1rem;
+    width: 80%;
+    font-size: 1.5rem;
     font-weight: 400;
-}
-
-textarea:hover {
-    border-color: #c6c6c6;
 }
 
 textarea:focus {
@@ -35,11 +15,7 @@ textarea:focus {
     border-color: #c6c6c6;
 }
 
-textarea::placeholder {
-    color: #c6c6c6;
-}
-
-.profile-description {
+.description {
     padding: .6em;
     padding-left: .2em;
     margin-bottom: 2em;

@@ -11,7 +11,6 @@ function MyFavRecipes () {
     useEffect(()=>{
         const getUserData = async() =>{
             const userData = await getUserById(user.uid)
-            console.log(userData)
             setRecipes(userData.favRecipes);
         } 
         getUserData();

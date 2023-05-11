@@ -29,7 +29,7 @@ const TextArea = ({ canType, currentDescription, onTyping }: PropsForTextArea) =
                 readOnly={!canType}
                 ref={textAreaRef}
                 rows={1}
-                className={'profile-description'}
+                className='description'
                 style={{ 'border': canType ? '.5px solid black' : 'none' }}
             />
         </div>
