@@ -2,13 +2,11 @@ import { arrayUnion } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { UserAuth } from '../../Context/AuthContext';
-import { createBlog } from '../../Firebase/BlogsDB';
+import { createBlog, saveBlogsImageAndGetUrl } from '../../Firebase/BlogsDB';
 import { getUserById, updateUserBlog } from '../../Firebase/UserDB';
 import { BlogsNewIngredient } from '../Blogs/BlogsNewIngredient';
 import TextArea from '../Textarea/TextrArea';
-import { dbStorage } from '../../Firebase/FirebaseConfig';
 import './CreateBlog.css'
-import { ref, uploadBytes } from 'firebase/storage';
 import { v4 } from 'uuid';
 
 const CreateBlog = () => {
@@ -22,16 +20,27 @@ const CreateBlog = () => {
     const { user } = UserAuth();
     const navigate=useNavigate();
 
-
-    const imageUploadHandler= (e:any)=>{
+    useEffect(()=>{
         if(!image)return;
-        // const newImageUrl = URL.createObjectURL(image);
-        // setImageURL(newImageUrl);
-        const imageRef=ref(dbStorage, `images/${image.name + v4()}`);
-        uploadBytes(imageRef,image).then(()=>alert("uploaded"))
+        const newImageUrl = URL.createObjectURL(image);
+        setImageURL(newImageUrl);
+    },[image])
+
+    const imageUploadHandler = (event : any) => {
+        event.preventDefault();
+        setImage(event.target.files![0]);
     }
 
+    const addImageInDB = async() =>{
+        console.log(`${image.name}${v4()}`);
+        if(!image)return;
+        const url = await saveBlogsImageAndGetUrl(`${image.name}${v4()}`, image);
+        return url;
+    }
+
+
     const saveBlog = async () => {
+        const imageURL = await addImageInDB();
         const userData = await getUserById(user.uid);
         const blogToCreate: any = {
             title: currentTitle,
@@ -39,12 +48,12 @@ const CreateBlog = () => {
             ingredients: ingredients,
             instruction:currentInstruction,
             owner: userData.username,
-            
+            image: imageURL,
         }
+        console.log(blogToCreate)
         const uid = await createBlog(blogToCreate);
         await updateUserBlog(user.uid, { blogs: arrayUnion(uid)})
-        navigate(-1);
-        navigate('./myblogs')
+        navigate('/myblogs')
     }
 
     const changeCurrentDescription = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -59,7 +68,6 @@ const CreateBlog = () => {
         setCurrentTitle(e.currentTarget.value);
     }
     const addIngredient = () => {
-        
         setIngVisible(true);
     }
 
@@ -79,10 +87,11 @@ const CreateBlog = () => {
             </div>
             <h2>Instruction</h2>
             <TextArea canType={true} currentDescription={currentInstruction} onTyping={changeCurrentInstruction} />
-            <input type="file" accept='image/*' onChange={(event)=> setImage(event.target.files![0])} />
-            <button onClick={imageUploadHandler}>upload</button>
-            {/* <img src={imageURL} /> */}
-            <button className="create-button" onClick={saveBlog}>Save Project</button>
+            <div><input type="file" id="file" accept='image/*' onChange={(event)=> imageUploadHandler(event)} />
+            <label htmlFor="file" className="upload-button">upload Image</label>
+            </div>
+            <img className="create-blog-image" src={imageURL} /> 
+            <button className="create-button" onClick={saveBlog}>Save Blog</button>
         </div>
     )
 }

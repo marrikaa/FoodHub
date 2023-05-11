@@ -4,7 +4,7 @@
     text-align: center;
     align-items: center;
     width: 80%;
-    color:#F38C10;
+    color:#dcdcdc;
     font-family:'Times New Roman', Times, serif;
 }
 
@@ -19,7 +19,7 @@
     width: 30%;
     height: 3rem;
     border-radius: .5rem;
-    color:#F38C10;
+    color:#dcdcdc;
     font-family:'Times New Roman', Times, serif;
     font-size: large;
 }
@@ -46,7 +46,7 @@
 
 .new-ingredient-button{
     font-size: larger;
-    border: .1rem solid #F38C10;
+    border: .1rem solid #dcdcdc;
     margin: 1% 49%;
     border-radius: 50%;
 }
@@ -54,18 +54,46 @@
 .new-ingredient-button:hover{
     font-weight:bolder;
     cursor: pointer;
-    border: .15rem solid #F38C10;
+    border: .15rem solid #dcdcdc;
 }
 
 .create-button{
-    padding: .5rem 1rem;
-    color: #F38C10; 
+    padding: .7rem 2rem;
+    color:#66222b;
     font-size: larger;
     background-color:#dcdcdc;
     border: none;
     border-radius: .5rem;
+    align-items: center;
+    font-family:'Times New Roman', Times, serif;
 }
 
 .create-button:hover{
     font-weight: bolder;
+}
+
+[type="file"] {
+    height: 0;
+    overflow: hidden;
+    width: 0;
+  }
+    
+.upload-button {
+    padding: .5rem 1rem;
+    color:#66222b;
+    font-size: larger;
+    background-color:#dcdcdc;
+    border: none;
+    border-radius: .5rem;
+    font-family:'Times New Roman', Times, serif;
+}
+
+.upload-button:hover {
+      font-weight: bolder;
+}
+
+.create-blog-image{
+    width: 50%;
+    height: auto;
+    margin: 1rem 25%;
 }

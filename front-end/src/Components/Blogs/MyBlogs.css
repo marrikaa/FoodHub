@@ -1,11 +1,17 @@
-.add-blog-button{
-    border: 1px solid black;
-    color:brown;
+.create-blog-button{
+    color:#66222b;
+    font-size: large;
     cursor: pointer;
     padding: 1rem;
-    width: 20rem;
+    width: 10rem;
     height: auto;
-    background-color: aliceblue;
-    margin: 5rem;
+    background-color:#ccc8c8;
+    margin: 4rem;
     text-align: center;
+    border-radius: 1rem;
+}
+
+.create-blog-button:hover{
+    font-size: larger;
+    box-shadow: 1px 3px 3px 3px rgba(60, 12, 12, 0.2);
 }

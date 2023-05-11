@@ -45,6 +45,7 @@ export const BlogsNewIngredient = ({ setVisible, setIngredients, ingredients }: 
     }
 
     return (
+        <div className='popUp-container'>
         <div className='ingredients-PopUp'>
                 <form onSubmit={addIngredients} className='ingredienst-form'>
                     <p className='add-ingredients'>Ingredients</p>
@@ -59,6 +60,6 @@ export const BlogsNewIngredient = ({ setVisible, setIngredients, ingredients }: 
                     <button className='red-button not-important' onClick={close}>Exit</button>
                     <button className='red-button' onClick={save}>Save</button>
                 </div>
-        </div>
+        </div></div>
     )
 }

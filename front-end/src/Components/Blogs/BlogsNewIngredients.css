@@ -15,6 +15,20 @@
     align-items: center;
     color: #011627;
     padding: 1rem;
+   
+}
+.popUp-container{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    min-height: 150vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, .4);
+    z-index: 5;
+   
 }
 
 .add-ingredients{

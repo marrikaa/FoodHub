@@ -147,3 +147,12 @@ export type UserIngredients = {
     ignorePantry: string,
     ranking: string
 }
+
+export type BlogType = {
+    title: string,
+    ingredients:string[],
+    image:string,
+    description: string,
+    owner: string,
+    instruction: string,
+}

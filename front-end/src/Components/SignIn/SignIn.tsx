@@ -38,6 +38,7 @@ function SignIn (props :PropsType) {
     }
 
     return (
+        <div className="popUp-container">
         <div className="PopUp">
             <button className="popup-x" onClick={()=> setPopUpForSign(false)} >X</button>
             <form onSubmit={formSubmitted} className='login-form' method='get'>
@@ -51,6 +52,7 @@ function SignIn (props :PropsType) {
             <h3 className='create-account-element' data-toggle="modal" onClick={() =>{setPopUpForReg(true)}}>Sigh in with Email</h3>
             {popUpForReg && <RegistrationForm setPopUp={setPopUpForReg} setPopUpForSign = {setPopUpForSign} />}
             <GoogleButton onClick={handleGoogleSignIn} /> 
+        </div>
         </div>
     );
 }

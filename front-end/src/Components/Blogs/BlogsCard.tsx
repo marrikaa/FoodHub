@@ -2,22 +2,23 @@ import { useNavigate } from 'react-router-dom';
 import './BlogsCard.css'
 
 function BlogsCard (props : any) {
-    const { title, id, description } = props;
+    const { title, id, description, image } = props;
     const navigate = useNavigate();
 
-    const seeDetails = () => {
+    const navigateToBlogDetails = () => {
         try{
-          navigate(`/blogs${id}`)  
+          navigate(`/blogs/${id}`)  
         }catch{
             console.error();    
         }
     }
 
     return (
-        <div className="recipe-card-item" onClick={seeDetails}>
-            <h2 className="title"><b>{title}</b></h2>
-            <div className='card-header'>
-                <p className='read-more'>{description}</p>
+        <div className="blogs-card-item" onClick={navigateToBlogDetails}>
+            <img className="blog-image" src={image} />
+            <div>
+                <h2 className="blog-title"><b>{title}</b></h2>
+                <p className="blog-description"><b>{description}</b></p>
             </div>
         </div>
     );

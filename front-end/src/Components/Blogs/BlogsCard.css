@@ -1,67 +1,42 @@
-.recipe-card-item{
+.blogs-card-item{
     display: flex;
-    flex-direction: column;
     border: none;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     margin: 5rem 3rem;
-    background-color:  #dcdcdc;  
     border-radius: .5rem;
-    overflow: scroll;; 
+    overflow: scroll;
 }
 
-.recipe-card-item:hover {
-    box-shadow: 5px 13px 13px 0 rgba(0, 0, 0, 0.2);
+.blogs-card-item:hover {
+    box-shadow: 5px 13px 13px 13px rgba(0, 0, 0, 0.2);
     cursor: pointer;
-  }
-
-.card-image{
-    border-radius: .5rem;
-    margin: 1rem;
-}
-.card-header{
-    display: flex;
-    justify-content: space-between;
-    margin:1rem .5rem;
-    padding: .5rem;
-    color:#F38C10;
-    
 }
 
-.add-button{    
-    background-color: #dcdcdc; 
-    font-size: 30px;
-    border: 1px solid #F38C10;
-    text-align: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-}
-
-.add-button:hover{
-    font-weight:bold;
-    cursor: pointer;
-    border: 1px solid #F38C10;
-}
-
-
-.read-more{
+.blog-description{
     width: 50%;
-    text-decoration: underline;
-    background-color: #dcdcdc; 
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-.read-more:hover{
-    font-weight:bold;
-    cursor: pointer;
-}
-
-.title{
-    margin:1rem;
-    color: #F38C10;
+    margin: 5% 10%;
+    overflow: hidden;
+    line-height: 2rem;
     font-family: 'Times New Roman', Times, serif;
+    font-size: larger;
+    color: #dcdcdc;
+    font-weight: lighter; 
 }
 
-.description{
-    margin: 1rem;
+.blog-title{
+    text-align: center;
+    width: 50%;
+    margin: 5% 10%;
+    overflow: hidden;
+    line-height: 2rem;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: larger;
+    color: #dcdcdc;
+    font-weight: lighter;
 }
+
+.blog-image{
+    margin: 1rem;
+    width: 30%;
+    height: 20%;
+}
+

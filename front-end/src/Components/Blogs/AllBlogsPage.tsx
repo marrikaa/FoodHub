@@ -26,7 +26,7 @@ function AllBlogsPage (){
 
     return (
         <div>
-            {blogs && blogs.map((blog :any, index) => (<BlogsCard title={blog.title} id={blog.id} 
+            {blogs && blogs.map((blog :any, index) => (<BlogsCard image={blog.image} title={blog.title} id={blog.id} 
                 description={blog.description} key={index} />))}
         </div>
     )

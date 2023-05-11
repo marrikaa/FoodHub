@@ -1,6 +1,7 @@
 import { collection, setDoc, doc, getDoc, query, getDocs} from "firebase/firestore";
+import { getDownloadURL, listAll, ref, uploadBytes } from "firebase/storage";
 import { v4 } from "uuid";
-import { dbConnection } from './FirebaseConfig';
+import { dbConnection, dbStorage } from './FirebaseConfig';
 
 
 export const createBlog = async (params: any): Promise<string> => {
@@ -11,8 +12,10 @@ export const createBlog = async (params: any): Promise<string> => {
         ingredients: params.ingredients,
         description: params.description,
         id: currentId,
-        owner: params.owner
+        owner: params.owner,
+        image: params.image,
     });
+    console.log(currentId);
     return currentId;
 }
 export const getAllBlogs = async (): Promise<any> => {
@@ -22,7 +25,7 @@ export const getAllBlogs = async (): Promise<any> => {
     return blogs as any[];
 }
 
-const getBlogById = async (uid: string): Promise<any> => {
+export const getBlogById = async (uid: string): Promise<any> => {
     const docRef = doc(dbConnection, "blogs", uid);
     const docSnap = (await getDoc(docRef)).data();
     return docSnap;
@@ -37,4 +40,29 @@ export const getAllBlogsbyId = async (uids: string[]): Promise<any> => {
         return blogsArray;
     }
     return (await getAllBlogs());
+}
+
+const saveBlogsImage = async (uid: string, image: any): Promise<any> => {
+    try{
+        const imageUID = `images/${uid}`
+        const imageRef = ref(dbStorage, imageUID);
+        await uploadBytes(imageRef, image)
+    } catch {
+        console.error();
+    }
+}
+
+export const saveBlogsImageAndGetUrl = async (path: string, image: any): Promise<any> => {
+    try{
+        await saveBlogsImage(path, image);
+        const imagelistref =  ref(dbStorage, 'images/');
+        const listOfRefs = await listAll(imagelistref)
+        for (const item of listOfRefs.items) {
+            if(item.fullPath!.split("/")[1] === path){
+                console.log("here")
+                return await getDownloadURL(item)
+            }
+    }} catch {
+        console.error();
+    }
 }

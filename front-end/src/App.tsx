@@ -10,6 +10,7 @@ import SearchForm from './Components/SearchForm/SearchForm';
 import SearchFormByIngredients from './Components/SearchFormByIngredients/SearchFormByIngredients';
 import { AuthContextProvider } from './Context/AuthContext';
 import AllBlogsPage from './Components/Blogs/AllBlogsPage';
+import BlogDetails from './Components/Blogs/BlogDetails/BlogDetails';
 
 function App() {
  
@@ -23,6 +24,7 @@ function App() {
           <Route path="/searchDish" element={<SearchForm />}></Route>
           <Route path="/searchDishByIngredients" element={<SearchFormByIngredients />}></Route>
           <Route path="/blogs" element={<AllBlogsPage />}></Route> 
+          <Route path="/blogs/:id" element={<BlogDetails />}></Route> 
           <Route path="/myblogs" element={<MyBlogs />}></Route>
           <Route path="/myRecipes" element={<MyFavRecipes />}></Route>
           <Route path="/createBlog" element={<CreateBlog />}></Route>  
