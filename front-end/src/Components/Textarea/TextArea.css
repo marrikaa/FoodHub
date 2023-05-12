@@ -6,8 +6,8 @@ textarea {
     line-height: 1;
     resize: none;
     width: 80%;
-    font-size: 1.5rem;
-    font-weight: 400;
+    font-size: 1.2rem;
+    font-weight: 300;
 }
 
 textarea:focus {
@@ -15,9 +15,11 @@ textarea:focus {
     border-color: #c6c6c6;
 }
 
-.description {
+.text-area {
     padding: .6em;
     padding-left: .2em;
     margin-bottom: 2em;
     border-radius: 10px;
+    color:#66222b;
+    font-weight: bold;
 }

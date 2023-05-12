@@ -1,15 +1,15 @@
 import { Route,Routes } from 'react-router-dom';
 import './App.css';
-import CreateBlog from './Components/CreateBlog/CreateBlog';
+import CreateBlog from './Components/Blogs/CreateBlog/CreateBlog';
 import Header from './Components/Header/Header';
 import Instruction from './Components/Instruction/Instruction';
-import MyBlogs from './Components/Blogs/MyBlogs';
+import MyBlogs from './Components/Blogs/AllBlogs/MyBlogs';
 import MyFavRecipes from './Components/MyFavRecipes/MyFavRecipes';
 import SearchBar from './Components/SearchBar/SearchBar';
 import SearchForm from './Components/SearchForm/SearchForm';
 import SearchFormByIngredients from './Components/SearchFormByIngredients/SearchFormByIngredients';
 import { AuthContextProvider } from './Context/AuthContext';
-import AllBlogsPage from './Components/Blogs/AllBlogsPage';
+import AllBlogsPage from './Components/Blogs/AllBlogs/AllBlogsPage';
 import BlogDetails from './Components/Blogs/BlogDetails/BlogDetails';
 
 function App() {

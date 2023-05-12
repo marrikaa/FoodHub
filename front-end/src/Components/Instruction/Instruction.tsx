@@ -16,10 +16,6 @@ function Instruction ()  {
     useEffect(() => {
         const getInstruction = async() => {
             const instructions = await getIntructionByID(id!);
-            // setInstruction([{
-            //     number: 2,
-            //     step: "jdsajsijadsid"
-            // }]);
             if(instructions.steps === undefined){
                 setError("Sorry, We don't have instuction for this recipe!")
             }
@@ -43,18 +39,16 @@ function Instruction ()  {
                 <p>Ingredients</p>
                 <p>Steps for cooking</p>
             </div>
-        <div className="ingredients-steps">
-            <div><Ingredients recipeId={id!} /></div>
-            <div className="vl"></div>
-            <div>
-            {error && <p className="intructions">{error}</p>}
-            {instruction && instruction.map((i: InstructionType, index) => (
-                <div className="intructions" key={index}>
-                    <li>{i.step}</li>
-                </div>))}</div>
+            <div className="ingredients-steps">
+                <div><Ingredients recipeId={id!} /></div>
+                <div className="vl"></div>
+                {error && <p className="intructions">{error}</p>}
+                {instruction && instruction.map((i: InstructionType, index) => (
+                    <div className="intructions" key={index}>
+                        <li>{i.step}</li>
+                    </div>))}
+            </div>
         </div>
-        </div>
-
      ) 
 }
 export default Instruction

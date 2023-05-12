@@ -38,7 +38,7 @@ export const BlogsNewIngredient = ({ setVisible, setIngredients, ingredients }: 
         ingredient.value = "";
     }
 
-    const removeTag = (index: number) => {
+    const removeIngredient = (index: number) => {
         const tmpIngredients = [...currentSelectedIngredients];
         tmpIngredients.splice(index, 1);
         setCurrentSelectedIngredients(tmpIngredients);
@@ -51,14 +51,17 @@ export const BlogsNewIngredient = ({ setVisible, setIngredients, ingredients }: 
                     <p className='add-ingredients'>Ingredients</p>
                     <input className='ingredient-input' name='ingredient' placeholder='ingredient' type="text" />
                 </form>
-                <div className='add-tag-list'>
-                    {currentSelectedIngredients.map((i, index) => {
-                        return <div className='add-tag-list-container'>{i}<button key={index} onClick={() => removeTag(index)}>x</button></div>
+                <div className='add-ingredient-list'>
+                    {currentSelectedIngredients.map((ingredient, index) => {
+                        return <div className='add-ingredient-list-container'>
+                            {ingredient}<button key={index} onClick={() => removeIngredient(index)} 
+                            className='ing-remove-button'>x</button>
+                            </div>
                     })}
                 </div>
                 <div className='pop-up-button-container'>
-                    <button className='red-button not-important' onClick={close}>Exit</button>
-                    <button className='red-button' onClick={save}>Save</button>
+                    <button  onClick={close}>Exit</button>
+                    <button onClick={save}>Save</button>
                 </div>
         </div></div>
     )

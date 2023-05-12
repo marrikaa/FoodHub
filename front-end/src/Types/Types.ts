@@ -154,5 +154,5 @@ export type BlogType = {
     image:string,
     description: string,
     owner: string,
-    instruction: string,
+    instruction: string[],
 }

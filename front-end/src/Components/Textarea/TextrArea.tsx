@@ -23,13 +23,14 @@ const TextArea = ({ canType, currentDescription, onTyping }: PropsForTextArea) =
     return (
         <div className="text-area-app">
             <textarea
+            required
                 id="review-text"
                 onChange={handleChange}
                 value={currentDescription}
                 readOnly={!canType}
                 ref={textAreaRef}
                 rows={1}
-                className='description'
+                className='text-area'
                 style={{ 'border': canType ? '.5px solid black' : 'none' }}
             />
         </div>

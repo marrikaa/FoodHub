@@ -2,9 +2,6 @@
     margin: 1rem 2rem; 
 }
 
-body{
-    background-color:  #dcdcdc; 
-}
 .intructions{
     display: flex;
     text-align: left;
@@ -12,7 +9,7 @@ body{
 
 .details-title{
     margin: 1rem;
-    color: #F38C10;
+    color: #dcdcdc;
     font-family: 'Times New Roman', Times, serif;
 }
 
@@ -23,7 +20,7 @@ body{
     margin: 5rem 0rem;
     font-size: large;
     font-family: 'Times New Roman', Times, serif;
-    color:  #F38C10;
+    color: #dcdcdc;
 }
 
 .details_img_title{
@@ -40,12 +37,12 @@ body{
 .description{
     font-family: 'Times New Roman', Times, serif;
     font-size: medium;
-    color: #F38C10;
+    color: #dcdcdc;
     line-height: 1rem;
 }
 
 .vl {
-  border-left: .1rem solid #F38C10;
+  border-left: .1rem solid  #dcdcdc;
   height: auto
 }
 
@@ -56,7 +53,7 @@ body{
     margin-top: 5rem;
     font-family: 'Times New Roman', Times, serif;
     font-size: 1.3rem;
-    color:  #F38C10;
+    color: #dcdcdc;
 }
 
 @media (min-width: 800px) {

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { UserAuth } from "../../Context/AuthContext";
-import { getAllBlogs } from "../../Firebase/BlogsDB";
-import { getUserById } from "../../Firebase/UserDB";
-import BlogsCard from "./BlogsCard";
+import { UserAuth } from "../../../Context/AuthContext";
+import { getAllBlogs } from "../../../Firebase/BlogsDB";
+import { getUserById } from "../../../Firebase/UserDB";
+import BlogsCard from "../BlogsCard/BlogsCard";
 import './MyBlogs.css'
 
 function AllBlogsPage (){

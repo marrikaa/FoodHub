@@ -12,17 +12,6 @@ function Ingredients (props: Idtype)  {
         const getIngredients = async() => {
             const ingredients = await getIngredientsByID(recipeId);
             setIngredients(ingredients)
-            // setIngredients([{
-            //     image: "string",
-            //     name: "string",
-            //     amount: {
-            //         metric:{
-            //             value:"string",
-            //             unit:"string"},
-            //         us:{value:"string",
-            //         unit:"string"}
-            //     }
-            // }]);
         }
         getIngredients()
     }, [recipeId])
@@ -30,8 +19,8 @@ function Ingredients (props: Idtype)  {
     return(
         <div>
         {ingredients && ingredients.map((i: IngredientsType, index)=> (
-            <div className="ingredients" key = {index}><p>• {i.name} -  </p>
-            <p>{i.amount.metric.value} {i.amount.metric.unit}</p>
+            <div className="ingredients" key = {index}>
+                <li> {i.name} - {i.amount.metric.value} {i.amount.metric.unit}</li>
         </div>   
         ))}
     </div> ) 

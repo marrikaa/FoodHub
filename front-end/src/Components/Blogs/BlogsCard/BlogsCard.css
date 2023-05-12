@@ -12,30 +12,31 @@
 }
 
 .blog-description{
-    width: 50%;
+    width: 70%;
     margin: 5% 10%;
     overflow: hidden;
-    line-height: 2rem;
+    line-height: 3rem;
     font-family: 'Times New Roman', Times, serif;
     font-size: larger;
     color: #dcdcdc;
     font-weight: lighter; 
+    text-align: center;
 }
 
 .blog-title{
     text-align: center;
-    width: 50%;
-    margin: 5% 10%;
+    width: 70%;
+    margin: 2% 10%;
     overflow: hidden;
     line-height: 2rem;
     font-family: 'Times New Roman', Times, serif;
-    font-size: larger;
+    font-size: 2rem;
     color: #dcdcdc;
     font-weight: lighter;
 }
 
 .blog-image{
-    margin: 1rem;
+    margin: 1rem 5rem;
     width: 30%;
     height: 20%;
 }

@@ -14,7 +14,6 @@ function MyFavRecipes () {
             setRecipes(userData.favRecipes);
         } 
         getUserData();
-        console.log(recipes)
     },[user.uid])
 
     return (

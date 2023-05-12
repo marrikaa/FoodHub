@@ -15,7 +15,7 @@ function BlogsCard (props : any) {
 
     return (
         <div className="blogs-card-item" onClick={navigateToBlogDetails}>
-            <img className="blog-image" src={image} />
+            <img className="blog-image" src={image} alt="" />
             <div>
                 <h2 className="blog-title"><b>{title}</b></h2>
                 <p className="blog-description"><b>{description}</b></p>

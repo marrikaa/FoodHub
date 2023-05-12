@@ -1,8 +1,5 @@
 .ingredients{
-    display: flex;
-    flex-direction: row;
     padding: .1rem;
-    width: 100%;
     align-items: start;
     font-family: 'Times New Roman', Times, serif
 }

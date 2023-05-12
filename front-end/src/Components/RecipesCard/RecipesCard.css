@@ -2,11 +2,10 @@
     display: flex;
     flex-direction: column;
     border: none;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    margin: 5rem 3rem;
-    background-color:  #dcdcdc;  
+    margin: 5rem 3rem; 
     border-radius: .5rem;
-    overflow: scroll;; 
+    overflow: scroll;
+    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2);
 }
 
 .recipe-card-item:hover {
@@ -15,7 +14,6 @@
   }
 
 .card-image{
-    border-radius: .5rem;
     margin: 1rem;
 }
 .card-header{
@@ -23,14 +21,13 @@
     justify-content: space-between;
     margin:1rem .5rem;
     padding: .5rem;
-    color:#F38C10;
+    color:#c6c6c6;
     
 }
 
 .add-button{    
-    background-color: #dcdcdc; 
     font-size: 30px;
-    border: 1px solid #F38C10;
+    border: 1px solid #c6c6c6;
     text-align: center;
     width: 40px;
     height: 40px;
@@ -40,14 +37,13 @@
 .add-button:hover{
     font-weight:bold;
     cursor: pointer;
-    border: 1px solid #F38C10;
+    border: 1px solid #c6c6c6;
 }
 
 
 .read-more{
     width: 50%;
     text-decoration: underline;
-    background-color: #dcdcdc; 
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -57,8 +53,9 @@
 }
 
 .title{
+    text-align: center;
     margin:1rem;
-    color: #F38C10;
+    color: #c6c6c6;
     font-family: 'Times New Roman', Times, serif;
 }
 
