@@ -33,7 +33,7 @@ function SearchForm () {
     const formSubmitted = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const { dish, cuisine, excludeCuisine, diet } = event.currentTarget;
-        await setRecipeFilter({
+        setRecipeFilter({
             query: dish.value,
             cuisine: cuisine.value,
             excludeCuisine: excludeCuisine.value,

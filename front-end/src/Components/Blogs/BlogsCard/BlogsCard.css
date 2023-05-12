@@ -1,5 +1,6 @@
 .blogs-card-item{
     display: flex;
+    flex-direction: column;
     border: none;
     margin: 5rem 3rem;
     border-radius: .5rem;
@@ -13,9 +14,9 @@
 
 .blog-description{
     width: 70%;
-    margin: 5% 10%;
+    margin: 5% 15%;
     overflow: hidden;
-    line-height: 3rem;
+    line-height: 2rem;
     font-family: 'Times New Roman', Times, serif;
     font-size: larger;
     color: #dcdcdc;
@@ -26,7 +27,7 @@
 .blog-title{
     text-align: center;
     width: 70%;
-    margin: 2% 10%;
+    margin: 2% 15%;
     overflow: hidden;
     line-height: 2rem;
     font-family: 'Times New Roman', Times, serif;
@@ -36,8 +37,25 @@
 }
 
 .blog-image{
-    margin: 1rem 5rem;
+    margin: 5rem 35% ;
     width: 30%;
-    height: 20%;
+    height: 10%;
 }
+
+@media (min-width: 800px) {
+    .blogs-card-item{
+        flex-direction: row;
+    }
+
+    .blog-image{
+        margin: 1rem 5rem;
+        width: 30%;
+        height: 10%;
+    }
+    .blog-description{
+     line-height: 3rem;   
+    }
+    
+}
+
 

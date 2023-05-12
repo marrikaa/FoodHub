@@ -32,10 +32,11 @@ function BlogDetails ()  {
                 <p>Steps for cooking</p>
             </div>
             <div className="ingredients-steps">
-                <div className="blog-detail-ingredients">{blog.ingredients.map((ingredient:string) => <li>{ingredient}</li> )}</div>
+                <div className="blog-detail-ingredients">
+                    {blog.ingredients.map((ingredient:string, index) => <li key={index}>{ingredient}</li> )}</div>
                 <div className="vl"></div>
                 <div className="blog-detail-intructions">
-                    {blog.instruction.map(step =><li>{step}</li>)}
+                    {blog.instruction.map((step, index) =><li key={index}>{step}</li>)}
                 </div>
             </div>
             <p className="blog-owner-name">Created by {blog.owner}</p>

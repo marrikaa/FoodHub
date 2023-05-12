@@ -1,7 +1,13 @@
 import { useNavigate } from 'react-router-dom';
 import './BlogsCard.css'
 
-function BlogsCard (props : any) {
+type PropsType ={
+    title: string;
+    description :string;
+    image: string;
+    id :string;
+}
+function BlogsCard (props : PropsType) {
     const { title, id, description, image } = props;
     const navigate = useNavigate();
 

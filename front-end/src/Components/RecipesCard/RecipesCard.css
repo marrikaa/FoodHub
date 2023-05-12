@@ -21,8 +21,7 @@
     justify-content: space-between;
     margin:1rem .5rem;
     padding: .5rem;
-    color:#c6c6c6;
-    
+    color:#c6c6c6; 
 }
 
 .add-button{    
@@ -33,13 +32,11 @@
     height: 40px;
     border-radius: 50%;
 }
-
 .add-button:hover{
     font-weight:bold;
     cursor: pointer;
     border: 1px solid #c6c6c6;
 }
-
 
 .read-more{
     width: 50%;
@@ -61,4 +58,20 @@
 
 .description{
     margin: 1rem;
+}
+
+.message-added{
+    padding: 2rem;
+    position: fixed;
+    left: 40%;
+    top: 25%;
+    width: 20%;
+    border-radius: .5em;
+    box-shadow: -2px 5px 5px #8b4049;
+    background-color: #e2e2e2;
+    justify-items: center;
+    align-items: center;
+    color :#66222b;
+    font-family:'Times New Roman', Times, serif;
+    font-size: larger;
 }

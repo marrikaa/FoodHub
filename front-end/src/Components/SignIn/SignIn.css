@@ -1,6 +1,6 @@
 .login-form {
     display: flex;
-    width: 40%;
+    width: 50%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -38,8 +38,6 @@ h2{
     margin: 1rem 0rem;
 }
 
-
-
 .popup-x{
     text-align: right;
     align-items:flex-end;
@@ -47,13 +45,13 @@ h2{
 
 .PopUp {
     position: fixed;
-    left: 8%;
+    left: 20%;
     top: 10%;
-    width: 80%;
+    width: 60%;
     height: 50%;
     border-radius: 1em;
     box-shadow: -2px 5px 5px #8b4049;
-    background-color: #e2e2e2;
+    background-color:#e2e2e2;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -86,7 +84,6 @@ h2{
 
 .popup-x:hover{
     font-weight: bolder;
-    border: 1px solid black;
 }
 
 .line {
@@ -104,9 +101,9 @@ h2{
 
  @media (min-width: 800px) {
     .PopUp{
-        left: 25%;
+        left: 30%;
         top: 15%;
-        width: 50%;
+        width: 40%;
         height: 60%;
     }
     .form-button{
@@ -121,9 +118,9 @@ h2{
 
 @media (min-width: 1200px) {
     .PopUp{
-        left: 30%;
+        left: 35%;
         top: 15%;
-        width: 40%;
+        width: 30%;
         height: 60%;
     }
     .form-button{
