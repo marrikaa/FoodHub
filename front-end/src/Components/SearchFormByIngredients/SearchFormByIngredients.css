@@ -1,0 +1,55 @@
+.ingerdients-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    margin: 3% 35%;
+}
+
+.recipe-ingredients{
+    padding: 1rem 2rem;
+    font-size: large;
+    border-radius: 1rem;
+    background-color:#dcdcdc;
+}
+.recipe-ingredients:focus {
+    outline: none;
+    border-color: #c6c6c6;
+}
+
+.search-recipe-button:hover{
+    cursor: pointer;
+    background-color:#b8b8b8;
+}
+
+.search-recipe-button{
+    color:#66222b;
+    font-size: larger;
+    background-color:#dcdcdc;
+    border: none;
+    border-radius: .5rem;
+    text-align: center;
+    margin-top: 2rem;
+    width: 5rem;
+    font-family:'Times New Roman', Times, serif;
+}
+
+.ingredients-container{
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    font-family:'Times New Roman', Times, serif;
+    font-size: medium;
+    width: 100%;
+    line-height: 1rem;
+}
+
+.each-ingredient{
+    text-align: left;
+    font-size: 1.2rem;
+    font-weight: 300;
+    padding: .5rem;
+    color: #c6c6c6;
+    font-size: larger;
+}

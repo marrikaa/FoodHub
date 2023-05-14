@@ -8,6 +8,7 @@ import './SearchFormByIngredients.css'
 
 function SearchFormByIngredients () {
     const { recipes, setRecipes} = useContext(AppContext);
+    const[ currentIngredients, setCurrentIngredients]=useState<string[]>([]);
     const [userIngredients, setUserIngredients] = useState<UserIngredients> ({  
         ingredients: "",
         number: '1',
@@ -16,40 +17,69 @@ function SearchFormByIngredients () {
     });
     const [newRecipes, setNewRecipes] = useState<RecipeCardItem[]>([]);
     
-    useEffect(() => {
-        const getIngredients= async() =>{
+    const getIngredients= async() =>{
+        if(userIngredients.ingredients !== ""){
             const recipe = await getrecipesByIngredient(userIngredients);
-            if(userIngredients.ingredients!== ""){
+            setNewRecipes(recipe);
+            setRecipes(recipe);
+        }else{
+            setNewRecipes(recipes)
+        }    
+    }
+    useEffect(()=>{
+        const getIngredients= async() =>{
+            console.log(userIngredients.ingredients)
+            if(userIngredients.ingredients !== ""){
+                const recipe = await getrecipesByIngredient(userIngredients);
                 setNewRecipes(recipe);
                 setRecipes(recipe);
             }else{
                 setNewRecipes(recipes)
-            }       
+            }    
         }
-        getIngredients()
-      }, [userIngredients]);
+        getIngredients();
+    },[userIngredients]);
 
-    const formSubmitted = async (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        const { ingredients } = event.currentTarget;
+    const formSubmitted = () => {
         setUserIngredients({
             ...userIngredients,
-            ingredients: await ingredients.value.split(" ").join(','),
-            });
-        
+            ingredients: currentIngredients.join(', '),
+        });
+        setCurrentIngredients([]);
     }
- 
+
+    const changeCurrentIngredient = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        const {ingredient} = event.currentTarget;
+        setCurrentIngredients([...currentIngredients, ingredient.value])
+        ingredient.value = "";
+    }
+
+    const removeIngredient = (index: number) => {
+        const tmpSteps = [...currentIngredients];
+        tmpSteps.splice(index, 1);
+        setCurrentIngredients(tmpSteps);
+    }
+
     return (
-        <div className='searchForm'>
-            <form onSubmit={formSubmitted} className='formInput' method='get'>
-                    <input name="ingredients" placeholder='Ingredients' type="text" />
-                <button type="submit" value="Submit" className='search-button'>🔍</button>
-            </form>
+        <>
+            <div className='ingerdients-form'>
+                <form onSubmit={changeCurrentIngredient}>
+                    <input type='text' name="ingredient" placeholder='Add ingredients' className='recipe-ingredients' required />
+                </form>
+                {currentIngredients && currentIngredients.map((ingredient, index) => 
+                <div className='ingredients-container'>
+                    <p className='each-ingredient'>• {ingredient}</p>
+                    <button key={index} onClick={() => removeIngredient(index)} className="step-remove-button">x</button>
+                </div>)}
+                <button type="submit" value="Submit" className='search-recipe-button' onClick={formSubmitted}>🔍</button>
+            </div>
             <div className="searchBar">
             {newRecipes && newRecipes.map((recipe: RecipeCardItem, index) => 
-                <RecipesCard title={recipe.title} image = {recipe.image} id={recipe.id} key= {index} isFav={false} /> )}
-        </div>
-     </div>)
+                <RecipesCard recipe={recipe} key= {index} /> )}
+            </div>
+    </>
+    )
 }
 
 export default SearchFormByIngredients;

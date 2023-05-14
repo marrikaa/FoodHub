@@ -65,7 +65,7 @@ function SearchForm () {
             </form>
             <div className="searchBar">
             {newRecipes && newRecipes.map((recipe: RecipeCardItem, index) => 
-                <RecipesCard title={recipe.title} image = {recipe.image} id={recipe.id} key= {index} isFav={false} /> )}
+                <RecipesCard recipe={recipe} key= {index} /> )}
         </div>
      </div>)
 }

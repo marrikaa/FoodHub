@@ -6,6 +6,7 @@ import SignIn from '../SignIn/SignIn';
 
 function Header() {
     const [popUpForSign, setPopUpForSign] = useState<boolean>(false)
+    const [logOutCheckerMessage, setLogOutCheckerMessage] = useState<string>("")
     const { user, logOut } = UserAuth();
     const navigate = useNavigate();
 
@@ -29,10 +30,15 @@ function Header() {
     const logOutHandler = async() => {
         try{
             await logOut();
-
+            setLogOutCheckerMessage("")
+            navigate(`/`)
         }catch(error){
             console.log(error)
         }
+    }
+
+    const logOutChecker = () => {
+        setLogOutCheckerMessage("Do you want to log out?")
     }
 
     const redirectToMyBlogs = async() => {
@@ -76,8 +82,15 @@ function Header() {
                         <div className = "dropdown-content">
                             <h4 onClick={redirectToMyBlogs} className='navbar-inner-element dropbtn'>My blogs</h4>
                             <h4 onClick={redirectToMyRecipes} className='navbar-inner-element dropbtn'>My recipes</h4>
-                            <h4 onClick={logOutHandler} className='navbar-inner-element dropbtn'>Log out</h4>
+                            <h4 onClick={logOutChecker} className='navbar-inner-element dropbtn'>Log out</h4>
                         </div> 
+                        {logOutCheckerMessage && 
+                            <div className='ingredients-PopUp'>
+                                <p>{logOutCheckerMessage}</p>
+                                    <div className='pop-up-button-container'>
+                                        <button  onClick={logOutHandler}>Yes</button>
+                                        <button onClick={()=>setLogOutCheckerMessage("")}>No</button>
+                            </div></div>}
                     </div>
                     : <div>
                         <h3 className='navbar-element' data-toggle="modal" onClick={() => setPopUpForSign(true)}>Sign in</h3>

@@ -58,10 +58,13 @@ export const AuthContextProvider = ({children} :any) => {
         if (! await isUserUnique(username)) {
             return "username already in use";
         }
-        const userCredential = await createUserWithEmailAndPassword(authenticator, email, password);
-        await addUser(username, userCredential.user.uid);
-        unsubscribe();
-        return "created successfully";
+        try{const userCredential = await createUserWithEmailAndPassword(authenticator, email, password);
+            await addUser(username, userCredential.user.uid);
+            unsubscribe();
+            return "created successfully";
+        }catch (error){
+            return "Email already is in use"
+        }
     }
 
     return (

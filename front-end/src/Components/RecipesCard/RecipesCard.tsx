@@ -6,8 +6,13 @@ import { getUserById, UpdateUserFavRecipes } from '../../Firebase/UserDB';
 import { RecipeCardItem } from '../../Types/Types';
 import './RecipesCard.css'
 
-function RecipesCard (props : RecipeCardItem) {
-    const { title, image, id, isFav} = props;
+type PropsType = {
+    recipe: RecipeCardItem;
+    setRecipes? : (recipes: RecipeCardItem[])=>void
+}
+
+function RecipesCard (props : PropsType) {
+    const{ recipe, setRecipes} = props;
     const{ user } = UserAuth();
     const navigate = useNavigate();
     const [addMessage, setAddMessage] = useState<string>("");
@@ -15,7 +20,7 @@ function RecipesCard (props : RecipeCardItem) {
 
     const seeInstructions = () => {
         try{
-          navigate(`/${id}`)  
+          navigate(`/${recipe.id}`)  
         }catch{
             console.error();    
         }
@@ -23,9 +28,9 @@ function RecipesCard (props : RecipeCardItem) {
     const adButtonHandler = async() => {
         await UpdateUserFavRecipes(user.uid, {
             favRecipes: arrayUnion( {
-                title: title,
-                image: image,
-                id:id,
+                title: recipe.title,
+                image: recipe.image,
+                id: recipe.id,
                 isFav: true,
             })
         })
@@ -35,34 +40,49 @@ function RecipesCard (props : RecipeCardItem) {
         },1000);
     }
 
+    const checkRemoveRecipe = () =>{
+        setRemoveMessage("Do you want to delete this recipe?");
+    }
+
     const removeButtonHandler = async() => {
         const userData= await getUserById(user.uid);
-        const arrayOfFavRecipes = userData.favRecipes;
-        const indexOfRecipe = arrayOfFavRecipes.findIndex((r : RecipeCardItem) => r.id === id);
+        const arrayOfFavRecipes : RecipeCardItem[]= userData.favRecipes;
+        const indexOfRecipe = arrayOfFavRecipes.findIndex((r : RecipeCardItem) => r.id === recipe.id);
         if (indexOfRecipe > -1) {
             arrayOfFavRecipes.splice(indexOfRecipe, 1);
         }
-        console.log(arrayOfFavRecipes)
         await UpdateUserFavRecipes(user.uid, {
             favRecipes: arrayOfFavRecipes
         })
-        setRemoveMessage("Recipe is removed from you favourite recipe list");
-        setTimeout(()=>{
-            setRemoveMessage("")
-        },1000);
+        setRecipes!(arrayOfFavRecipes);
+        setRemoveMessage("")
     }
+
 
     return (
         <>
         <div className="recipe-card-item">
-            <img className= "card-image"  alt="" src={image} onClick={seeInstructions} />
-            <h2 className="title"><b>{title}</b></h2>
+            <img className= "card-image"  alt="" src={recipe.image} onClick={seeInstructions} />
+            <h2 className="title"><b>{recipe.title}</b></h2>
+            <p className="title">So, whether you're seeking a refined dining experience or a casual 
+            meal with friends and family, this dish is the perfect choice. 
+            It's a culinary masterpiece that appeals to all, 
+            celebrating the art of food and leaving a lasting impression on your taste buds. 
+            Bon appétit!</p>
             {user && <div className='card-header'>
-                {!isFav && <p className='add-button' onClick={adButtonHandler}>+</p>}
-                {isFav && <p className='add-button' onClick={removeButtonHandler}>-</p>}
+                {!recipe.isFav && <p className='add-button' onClick={adButtonHandler}>+</p>}
+                {recipe.isFav && <p className='add-button' onClick={checkRemoveRecipe}>-</p>}
             </div>}
         </div>
-        {removeMessage && <p className='message-added'>{removeMessage}</p>}
+        {removeMessage && 
+              <div className='popUp-container'>
+              <div className='ingredients-PopUp'>
+                <p>{removeMessage}</p>
+                      <div className='pop-up-button-container'>
+                          <button  onClick={removeButtonHandler}>Yes</button>
+                          <button onClick={()=>setRemoveMessage("")}>No</button>
+                      </div>
+              </div></div>}
         {addMessage && <p className='message-added'>{addMessage}</p>}
         </>
     );

@@ -4,6 +4,7 @@ import { getUserById } from '../../Firebase/UserDB';
 import { RecipeCardItem } from '../../Types/Types';
 import RecipesCard from '../RecipesCard/RecipesCard';
 
+
 function MyFavRecipes () {
     const [recipes, setRecipes] = useState<RecipeCardItem[]>([]);
     const { user } = UserAuth();
@@ -19,7 +20,7 @@ function MyFavRecipes () {
     return (
         <div className="searchBar">
             {recipes && recipes.map((recipe: RecipeCardItem, index) => 
-                <RecipesCard title={recipe.title} image = {recipe.image} id={recipe.id} key= {index} isFav={recipe.isFav} /> )}
+                <RecipesCard recipe={recipe} key= {index} setRecipes={setRecipes} /> )}
         </div>)
 }
 

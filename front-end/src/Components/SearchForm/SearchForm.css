@@ -1,29 +1,27 @@
 .formInput{
     display: flex;
-    margin-top: 2rem;
+    flex-direction: column;
+    margin: 2rem;
     justify-content: center;
+    align-items: center;
 }
 
 .searchForm input {
     border-radius: 0.5rem;
     border: 1px solid;
     height: 2.7rem;
-    margin-right: 2rem;
+    margin-top: 2rem;
     font-size: medium;
-    width: 14rem;
+    width: 14.5rem;
     background-color:#dcdcdc;
 }
 select{
-    margin-right: 2rem;
+    margin-top: 2rem;
     border-radius: 0.5rem;
     border: 1px solid;
     height: 3rem;
     width: 15rem;
     font-size: medium;
-    background-color:#dcdcdc;
-}
-
-input{
     background-color:#dcdcdc;
 }
 
@@ -41,41 +39,47 @@ body{
     justify-content: center;
 
 }
-
-/* @media (min-width: 800px) {
-    .text-header{
-        padding: 6.5rem 2rem;
-        line-height: 2rem;
-        font-size: 1rem;
-    }
-    .navbar-element{
-        margin-right: 2rem;
-        font-size: 1.1rem;
-    }
+.searchBar{
+    display: grid;
+    grid-template-columns: 100%;
+    background-color: #66222b;
 }
 
-@media (min-width: 900px) {
-    .text-header{
-        padding: 8rem 3.5rem;
-        line-height:  3rem;
-        font-size: 1.5rem;
+@media (min-width: 700px) {
+    .searchBar{
+        grid-template-columns: 50% 50%;
     }
-    .navbar-element{
-        margin-right: 3.5rem;
-        font-size: 1.3rem;
+    .formInput{
+        flex-direction: row;
+    }
+    .searchForm input{
+        margin-top: 0rem;
+        margin-right: 1rem;
+    }
+    .searchForm select{
+        margin-top: 0rem;
+        margin-right: 1rem;
     }
 }
 
 @media (min-width: 1200px) {
-    .text-header{
-        padding: 10rem 5rem;
-        line-height: 3rem;
-        font-size: 1.5rem;
+    .searchBar{
+        grid-template-columns: 33.3% 33.3% 33.3%;
     }
-    .navbar-element{
-        margin-right: 5rem;
-        font-size: 1.5rem;
+    .formInput{
+        flex-direction: row;
     }
-} */
+    .searchForm input{
+        margin-top: 0rem;
+        margin-right: 2rem;
+    }
+    .searchForm select{
+        margin-top: 0rem;
+        margin-right: 2rem;
+    }
+}
+
+
+
 
 

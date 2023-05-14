@@ -12,7 +12,6 @@ function AllBlogsPage (){
     useEffect(()=>{
         const setUserBlogs = async()=> {
             const blogs = await getAllBlogs()
-            console.log(user);
             if(user && user.uid){
                 const userData = await getUserById(user.uid)
                 const filteredBlogs = blogs.filter((blog:any) => blog.owner !== userData.username)
