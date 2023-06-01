@@ -17,18 +17,17 @@ function SearchFormByIngredients () {
     });
     const [newRecipes, setNewRecipes] = useState<RecipeCardItem[]>([]);
     
-    const getIngredients= async() =>{
-        if(userIngredients.ingredients !== ""){
-            const recipe = await getrecipesByIngredient(userIngredients);
-            setNewRecipes(recipe);
-            setRecipes(recipe);
-        }else{
-            setNewRecipes(recipes)
-        }    
-    }
+    // const getIngredients= async() =>{
+    //     if(userIngredients.ingredients !== ""){
+    //         const recipe = await getrecipesByIngredient(userIngredients);
+    //         setNewRecipes(recipe);
+    //         setRecipes(recipe);
+    //     }else{
+    //         setNewRecipes(recipes)
+    //     }    
+    // }
     useEffect(()=>{
         const getIngredients= async() =>{
-            console.log(userIngredients.ingredients)
             if(userIngredients.ingredients !== ""){
                 const recipe = await getrecipesByIngredient(userIngredients);
                 setNewRecipes(recipe);

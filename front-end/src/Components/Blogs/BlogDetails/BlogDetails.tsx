@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getBlogById } from "../../../Firebase/BlogsDB";
 import { BlogType } from "../../../Types/Types";
-import './BlogDetails.css'
+import './Blogdetails.css'
 
 
 function BlogDetails ()  {
